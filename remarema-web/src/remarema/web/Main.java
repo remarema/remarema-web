@@ -5,19 +5,34 @@ package remarema.web;
  */
 public class Main {
 
+	/*
+	 * Just some testing method
+	 * 
+	 * @return Hello World! :3
+	 */
 	public String test(){
-        return "Hello World!";
+        return "Hello World!";								
     }
-
-	public int getLebenszeit(){
+	
+	/*
+	 * Returns the lifetime of a packet
+	 * 
+	 * @return Returns lifetime
+	 */
+	public int getLifetime(){
         return 30;
     }
 	
-	public String[] getVersionen(){
-		int versionAnzahl = 5;								//Soll aus Datenbank ausgelesen werden
+	/*
+	 * Returns a String of all existing versions
+	 * 
+	 * @return Returns versions
+	 */
+	public String[] getVersions(){
+		int versionAnzahl = 5;								//Debug values - Will get the real ones from database
 		String[] versionen = new String[versionAnzahl];
 		
-		//Zukünftig Dynamisch durch Datenbank
+		//Will be read out of a database in the future
 			versionen[0] = "1.0";
 			versionen[1] = "1.1";
 			versionen[2] = "1.2";
@@ -27,12 +42,17 @@ public class Main {
         return versionen;
     }
 	
+	/*
+	 * Returns a String of all existing clients
+	 * 
+	 * @return Returns clients
+	 */
 	public String[][] getClients(){	
-		int clientAnzahl = 2;								//Soll aus Datenbank ausgelesen werden
+		int clientAnzahl = 2;								//Debug values - Will get the real ones from database
 		
 		String[][] clients = new String[clientAnzahl][3];
 		
-		//Zukünftig Dynamisch durch Datenbank
+		//Will be read out of a database in the future
 			clients[0][0] = "Client 01 Name";
 			clients[0][1] = "Client 01 Netzwerk";
 			clients[0][2] = "Client 01 Version";

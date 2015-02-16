@@ -82,7 +82,7 @@
 							      Main main = new Main();
 								  Web web = new Web();
 								  Util util = new Util();
-							      out.println("<h1>" + main.test() + "</h1>");				//Ausgabe der Test Klasse
+							      out.println("<h1>" + main.test() + "</h1>");				//Some Testings
 							    %>
 							</header>
 
@@ -100,6 +100,8 @@
 							<p>Meow.</p>
 								
 							<form method="post" action="#">
+							
+							<!-- Still have to think about some good displaying method for 2k clients. -->
 							
 							<div class="row">
 								<div class="3u">
@@ -140,7 +142,7 @@
 									</div>
 									<div class="4u">
 										<select name="softwareversionen">
-											<% out.println(web.versionenList(main.getVersionen())); %>
+											<% out.println(web.versionList(main.getVersions())); %>
 										</select>
 									</div>
 								</div>
@@ -224,7 +226,7 @@
 							<form method="post" action="#">
 								<div class="row">
 									<div class="4u"><input type="text" value="Lebenszeit (in Tagen)" disabled /></div>
-									<div class="8u"><input type="text" name="lebenszeit" placeholder="<% out.println(main.getLebenszeit()); %>" /></div>
+									<div class="8u"><input type="text" name="lebenszeit" placeholder="<% out.println(main.getLifetime()); %>" /></div>
 								</div>
 								<div class="row">
 									<div class="12u">

@@ -9,12 +9,18 @@ import java.util.Date;
  */
 public class Util {
 	
+	/*
+	 * Gets the current Date
+	 */
 	public String getDate(){
 		DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 		Date date = new Date();
 		return dateFormat.format(date);
 	}
 	
+	/*
+	 * Gets the current Date and the current Time
+	 */
 	public String getDateTime(){
 		DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
 		Date date = new Date();
