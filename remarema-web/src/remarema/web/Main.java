@@ -1,15 +1,15 @@
 package remarema.web;
 
-/*
- * Stuff I will need from the Database
+/**
+ * Stuff I will need from the Database.
  * 
  * @author Maik Riedlsperger
- * @version 0.011
+ * @version 0.012
  */
 public class Main {
 
-	/*
-	 * Just some testing method
+	/**
+	 * Just some testing method.
 	 * 
 	 * @return Hello World! :3
 	 */
@@ -17,19 +17,19 @@ public class Main {
         return "Hello World!";								
     }
 	
-	/*
-	 * Returns the lifetime of a packet
+	/**
+	 * Returns the lifetime of a packet.
 	 * 
-	 * @return Returns lifetime
+	 * @return Returns lifetime.
 	 */
 	public int getLifetime(){
         return 30;
     }
 	
-	/*
-	 * Returns a String of all existing versions
+	/**
+	 * Returns a String of all existing versions.
 	 * 
-	 * @return Returns versions
+	 * @return Returns versions.
 	 */
 	public String[] getVersions(){
 		int versionAnzahl = 5;								//Debug values - Will get the real ones from database
@@ -45,10 +45,10 @@ public class Main {
         return versionen;
     }
 	
-	/*
-	 * Returns a String of all existing clients
+	/**
+	 * Returns a String of all existing clients.
 	 * 
-	 * @return Returns clients
+	 * @return Returns clients.
 	 */
 	public String[][] getClients(){	
 		int clientAnzahl = 2;								//Debug values - Will get the real ones from database

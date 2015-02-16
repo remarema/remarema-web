@@ -1,6 +1,6 @@
 /**
  * @author Maik Riedlsperger
- * @version 0.011
+ * @version 0.001
  * 
  * @preserve jQuery DateTimePicker plugin v2.4.1
  * @homepage http://xdsoft.net/jqplugins/datetimepicker/

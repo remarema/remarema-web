@@ -1,18 +1,18 @@
 package remarema.web;
 
-/*
- * Formatting Arrays to display on a web Page
+/**
+ * Formatting Arrays to display on a web Page.
  * 
  * @author Maik Riedlsperger
- * @version 0.011
+ * @version 0.012
  */
 public class Web {
 	
-	/*
-	 * Creates a dropdown menu for the options
+	/**
+	 * Creates a dropdown menu for the options.
 	 * 
-	 * @param versions A array of the existing versions
-	 * @return Returns a html formatted String
+	 * @param versions A array of the existing versions.
+	 * @return Returns a html formatted String.
 	 */
 	public String versionList(String[] versions){
 		String versionString = "";			//Return String
@@ -24,11 +24,11 @@ public class Web {
 		return versionString;
 	}
 	
-	/*
-	 * Formats the list of clients
+	/**
+	 * Formats the list of clients.
 	 * 
-	 * @param client A array of the existing clients + information about the clients (network, credentials...)
-	 * @return Returns a html formatted String
+	 * @param client A array of the existing clients + information about the clients (network, credentials...).
+	 * @return Returns a html formatted String.
 	 */	
 	public String clientList(String[][] clients){
 		String clientList = "";						//Return String
