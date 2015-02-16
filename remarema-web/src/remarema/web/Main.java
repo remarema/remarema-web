@@ -2,6 +2,9 @@ package remarema.web;
 
 /*
  * Stuff I will need from the Database
+ * 
+ * @author Maik Riedlsperger
+ * @version 0.011
  */
 public class Main {
 

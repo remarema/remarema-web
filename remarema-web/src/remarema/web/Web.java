@@ -2,6 +2,9 @@ package remarema.web;
 
 /*
  * Formatting Arrays to display on a web Page
+ * 
+ * @author Maik Riedlsperger
+ * @version 0.011
  */
 public class Web {
 	

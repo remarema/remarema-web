@@ -9,6 +9,9 @@
 	Prologue by HTML5 UP
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	
+	Author: Maik Riedlsperger
+	Version: 0.011
 -->
 <html>
 	<head>
@@ -97,6 +100,8 @@
 								<h2>Netzwerke und Clients</h2>
 							</header>
 							
+							<!-- I like cats. Here will be a description/short guide in the future. -->
+							
 							<p>Meow.</p>
 								
 							<form method="post" action="#">
@@ -180,6 +185,7 @@
 								<h2>Netzwerk/Client hinzufügen</h2>
 							</header>
 
+							<!-- I  still like cats. Here will be a description/short guide in the future. -->
 							
 							<p>Miez.</p>
 							
@@ -221,6 +227,8 @@
 								<h2>Einstellungen</h2>
 							</header>
 
+							<!-- Yep. I like cats. Here will be a description/short guide in the future. -->
+
 							<p>Nyan.</p>
 							
 							<form method="post" action="#">
@@ -245,13 +253,14 @@
 				
 				<!-- Copyright -->
 					<ul class="copyright">
-						<li>&copy; Maik Riedlsperger, Rebecca van Langelaan, Regina Werlberger</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; ARZ Innsbruck, Maik Riedlsperger, Rebecca van Langelaan, Regina Werlberger</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				
 			</div>
 
 	</body>
 	
+	<!-- Datepicker Javascript -->
 	<script>
 		/*window.onerror = function(errorMsg) {
 			$('#console').html($('#console').html()+'<br>'+errorMsg)

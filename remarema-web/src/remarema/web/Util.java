@@ -6,6 +6,9 @@ import java.util.Date;
 
 /*
  * Utility Class (for function like Date/Time...)
+ * 
+ * @author Maik Riedlsperger
+ * @version 0.011
  */
 public class Util {
 	
