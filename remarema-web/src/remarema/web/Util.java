@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /*
- * Utilitie Class (for function like Date/Time...)
+ * Utility Class (for function like Date/Time...)
  */
 public class Util {
 	

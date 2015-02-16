@@ -17,6 +17,7 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<link rel="shortcut icon" href="favicon.ico" />
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery.scrolly.min.js"></script>
 		<script src="js/jquery.scrollzer.min.js"></script>
@@ -51,9 +52,9 @@
 						<nav id="nav">
 							<ul>
 								<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Intro</span></a></li>
-								<li><a href="#netzwerke" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Netzwerke und Clients</span></a></li>
-								<li><a href="#hinzufuegen" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Netzwerk/Client hinzufügen</span></a></li>
-								<li><a href="#einstellungen" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Einstellungen</span></a></li>
+								<li><a href="#netzwerke" id="netzwerke-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Netzwerke und Clients</span></a></li>
+								<li><a href="#hinzufuegen" id="hinzufuegen-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Netzwerk/Client hinzufügen</span></a></li>
+								<li><a href="#einstellungen" id="einstellungen-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Einstellungen</span></a></li>
 							</ul>
 						</nav>
 						
@@ -138,7 +139,7 @@
 										<input type="text" placeholder="Softwareversion" disabled />
 									</div>
 									<div class="4u">
-										<select type="text" name="softwareversionen" placeholder="Softwareversionen" />
+										<select name="softwareversionen">
 											<% out.println(web.versionenList(main.getVersionen())); %>
 										</select>
 									</div>
@@ -242,7 +243,7 @@
 				
 				<!-- Copyright -->
 					<ul class="copyright">
-						<li>&copy; Maik Riedlsperger, Rebecca van Langelan, Regina Werlberger</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; Maik Riedlsperger, Rebecca van Langelaan, Regina Werlberger</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				
 			</div>
