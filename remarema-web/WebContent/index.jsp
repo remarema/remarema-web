@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="remarema.web.Main" %>
-<%@ page import="remarema.web.Web" %>
 <%@ page import="remarema.web.Util" %>
+<%@ page import="remarema.web.display.Setting" %>
+<%@ page import="remarema.web.display.Test" %>
+<%@ page import="remarema.web.display.Version" %>
+<%@ page import="remarema.web.display.Node" %>
+<%@ page import="remarema.web.display.Deploy" %>
+
 
 <!DOCTYPE HTML>
 <!--
@@ -11,7 +16,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 	
 	Author: Maik Riedlsperger
-	Version: 0.011
+	Version: 0.020
 -->
 <html>
 	<head>
@@ -56,6 +61,7 @@
 							<ul>
 								<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Intro</span></a></li>
 								<li><a href="#netzwerke" id="netzwerke-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Netzwerke und Clients</span></a></li>
+								<li><a href="#software" id="software-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Software verteilen</span></a></li>
 								<li><a href="#hinzufuegen" id="hinzufuegen-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Netzwerk/Client hinzufügen</span></a></li>
 								<li><a href="#einstellungen" id="einstellungen-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Einstellungen</span></a></li>
 							</ul>
@@ -76,23 +82,35 @@
 		<!-- Main -->
 			<div id="main">
 
-				<!-- Intro -->
+<!-- 
+	Introduction
+ -->
 					<section id="top" class="one dark cover">
 						<div class="container">
 
 							<header>
 								<%
+								//Creates Objects to call methods later
+								
 							      Main main = new Main();
-								  Web web = new Web();
+								  Setting setting = new Setting();
 								  Util util = new Util();
-							      out.println("<h1>" + main.test() + "</h1>");				//Some Testings
+								  Test test = new Test();
+								  Version version = new Version();
+								  Node node = new Node();
+								  Deploy deploy = new Deploy();
+								  
+							      out.println("<h1>" + test.test() + "</h1>");				//Some Testings
+							      out.println("<h1>Insert some introduction here</h1>");
 							    %>
 							</header>
 
 						</div>
 					</section>
 					
-				<!-- Portfolio -->
+<!-- 
+	Display networks and clients
+ -->
 					<section id="netzwerke" class="two">
 						<div class="container">
 					
@@ -100,33 +118,27 @@
 								<h2>Netzwerke und Clients</h2>
 							</header>
 							
-							<!-- I like cats. Here will be a description/short guide in the future. -->
 							
-							<p>Meow.</p>
+							<p>I need to think about some good display method for 2k clients and 700 networks...</p>
 								
 							<form method="post" action="#">
 							
-							<!-- Still have to think about some good displaying method for 2k clients. -->
+							<div class="row">
+								<div class="12u"><input type="text" placeholder="Suche" /></div>
+							</div>
 							
 							<div class="row">
-								<div class="3u">
-									<input type="text" placeholder="Name" disabled />
-								</div>
-								<div class="3u">
-									<input type="text" placeholder="Netzwerk" disabled />
-								</div>
-								<div class="2u">
-									<input type="text" placeholder="Version" disabled />
-								</div>
-								<div class="2u">
-									<input type="text" placeholder="Verteilen" disabled />
-								</div>
-								<div class="2u">
-									<input type="text" placeholder="Löschen" disabled />
+								<div class="12u" style="text-align: left;">
+									<div style=""><input type="checkbox" name="verteilen" value="true"><span style="font-size:x-large"><b><u>N1</u></b></span></div>
+									<div style="margin-left:5%;"><input type="checkbox" name="verteilen" value="true"><span style="font-size:large"><b>C1</b></span></div>
+									<div style="margin-left:10%;"><span style="font-size:medium">IP</span></div>
+									<div style="margin-left:10%;"><span style="font-size:medium">Softwarepackage 1</span></div>
+									<div style="margin-left:10%;"><span style="font-size:medium">Softwarepackage 2</span></div>
+									<div style="margin-left:10%;"><input type="checkbox" name="loeschen" value="true"><span style="font-size:medium">Löschen?</span></div>
 								</div>
 							</div>
 
-									<% out.print(web.clientList(main.getClients())); %>
+									  <!--< out.print(node.nodeList()); %>--> 
 						
 						
 								<div class="row">
@@ -135,19 +147,14 @@
 									</div>
 								</div>
 								
-							<br><br>	
-						
-							<header>
-								<h3>Software verteilen</h3>
-							</header>
-							
+							<form method="post" action="#">
 								<div class="row">
 									<div class="8u">
 										<input type="text" placeholder="Softwareversion" disabled />
 									</div>
 									<div class="4u">
 										<select name="softwareversionen">
-											<% out.println(web.versionList(main.getVersions())); %>
+											 <% out.println(version.versionList()); %>
 										</select>
 									</div>
 								</div>
@@ -172,22 +179,57 @@
 										<input type="submit" name="Software" value="Software verteilen!" />
 									</div>
 								</div>
+								
+							</form>
+						</div>
+					</section>
+					
+
+<!-- 
+	Deploy and add software
+ -->
+					<section id="software" class="three">
+						<div class="container">	
+							<header>
+								<h3>Software hinzufügen</h3>
+							</header>
+
+							<form method="post" action="#">
+								<div class="row">
+									<div class="12u"><input type="text" placeholder="Neues Software (add upload stuff)" /></div>
+								</div>
+								<div class="row">
+									<div class="8u">
+										<input type="text" placeholder="Softwarepacket" disabled />
+									</div>
+									<div class="4u">
+										<select name="softwareversionen">
+											 <% out.println(version.packetList()); %>
+										</select>
+									</div>
+								</div>
+								<div class="row">
+									<div class="12u">
+										<input type="submit" value="Neue Software hinzufügen!" />
+									</div>
+								</div>
 							</form>
 
 						</div>
 					</section>
 
-				<!-- Hinzufügen -->
-					<section id="hinzufuegen" class="three">
+<!-- 
+	Add networks and clients
+ -->
+					<section id="hinzufuegen" class="four">
 						<div class="container">
 
 							<header>
 								<h2>Netzwerk/Client hinzufügen</h2>
 							</header>
 
-							<!-- I  still like cats. Here will be a description/short guide in the future. -->
 							
-							<p>Miez.</p>
+							<p>Short description/guide</p>
 							
 							<form method="post" action="#">
 								<div class="row">
@@ -219,22 +261,22 @@
 						</div>
 					</section>
 			
-				<!-- Einstellungen -->
-					<section id="einstellungen" class="four">
+<!-- 
+	Settings
+ -->
+					<section id="einstellungen" class="five">
 						<div class="container">
 
 							<header>
 								<h2>Einstellungen</h2>
 							</header>
 
-							<!-- Yep. I like cats. Here will be a description/short guide in the future. -->
-
-							<p>Nyan.</p>
+							<p>Short description/guide</p>
 							
 							<form method="post" action="#">
 								<div class="row">
 									<div class="4u"><input type="text" value="Lebenszeit (in Tagen)" disabled /></div>
-									<div class="8u"><input type="text" name="lebenszeit" placeholder="<% out.println(main.getLifetime()); %>" /></div>
+									<div class="8u"><input type="text" name="lebenszeit" placeholder="<% out.println(setting.getLifetime()); %>" /></div>
 								</div>
 								<div class="row">
 									<div class="12u">
@@ -248,7 +290,9 @@
 			
 			</div>
 
-		<!-- Footer -->
+<!-- 
+	Footer
+ -->
 			<div id="footer">
 				
 				<!-- Copyright -->
