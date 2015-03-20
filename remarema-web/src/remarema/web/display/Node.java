@@ -1,6 +1,6 @@
 package remarema.web.display;
 
-import remarema.web.Main;
+import remarema.web.main.Main;
 
 /**
  * Formatting client Array to display on the web Page.

@@ -1,6 +1,6 @@
 package remarema.web.display;
 
-import remarema.web.Main;
+import remarema.web.main.Main;
 
 /**
  * Returns stuff of settings Array.

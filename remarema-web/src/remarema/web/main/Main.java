@@ -1,4 +1,4 @@
-package remarema.web;
+package remarema.web.main;
 
 import java.util.ArrayList;
 

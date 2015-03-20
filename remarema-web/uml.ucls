@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.8" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="remarema.web.Main" project="remarema-web" 
-    file="/remarema-web/src/remarema/web/Main.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="remarema.web.main.Main" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/main/Main.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="152" y="266"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -10,8 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="remarema.web.Util" project="remarema-web" 
-    file="/remarema-web/src/remarema/web/Util.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="remarema.web.main.Util" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/main/Util.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="331" y="150"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -60,8 +60,8 @@
     <position height="-1" width="-1" x="647" y="54"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <package id="8" language="java" name="remarema.web" project="remarema-web" file="/remarema-web/src/remarema/web" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <package id="8" language="java" name="remarema.web.main" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/main" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="272" y="52"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  

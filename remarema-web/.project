@@ -3,6 +3,7 @@
 	<name>remarema-web</name>
 	<comment></comment>
 	<projects>
+		<project>remarema-domain</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

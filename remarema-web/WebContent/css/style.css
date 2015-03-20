@@ -17,7 +17,8 @@
 
 	body
 	{
-		background: #fff;
+		background-color: #f5fafa;
+		background-image: url('images/overlay.png');
 	}
 
 		body.is-loading *
@@ -677,6 +678,11 @@
 							{
 								color: #FFFFFF;
 							}
+#activeMenu {							
+	background: rgba(0,0,0,0.15);
+	box-shadow: inset 0 0 0.25em 0 rgba(0,0,0,0.125);
+	color: #fff;
+}
 
 /*********************************************************************************/
 /* Footer                                                                        */
@@ -787,3 +793,10 @@
 			{
 				background-color: #e8edec;
 			}
+			
+	input[type="text"]:disabled {
+    	background: #dddddd;
+	}
+	#inputbtn {
+    	background: #0000CC;
+	}

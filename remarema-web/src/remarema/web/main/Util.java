@@ -1,4 +1,4 @@
-package remarema.web;
+package remarema.web.main;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -32,6 +32,20 @@ public class Util {
 		DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
 		Date date = new Date();
 		return dateFormat.format(date);
+	}
+	
+	/**
+	 * This method is used to give the menu point of the current page a special design/background.
+	 * 
+	 * @return ID activeMenu if the menu point should get a background
+	 */
+	public String activeMenu(String menu, String current_menu){
+		if(menu.equals(current_menu)){
+			return "activeMenu";
+		}
+		else{
+			return "null";
+		}
 	}
 
 }
