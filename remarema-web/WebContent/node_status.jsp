@@ -40,7 +40,7 @@
 							<div class="row">
 								<div class="2u"><input type="text" value="Network" disabled /></div>
 								<div class="2u"><input type="text" name="networkID" value="<% out.println(status.getNetworkID()); %>" /></div>
-								<div class="6u"><input type="text" name="networkName" value="<% out.println(status.getNetworkName()); %>" /></div>
+								<div class="6u"><input type="text" name="networkName" value="<% out.println(status.getNetworkName()); %>" disabled /></div>
 								<div class="2u"><a href="network_status.jsp?network=<% out.print(status.getNetworkID()); %>"><input id="inputbtn" type="text" value="View" disabled /></a></div>
 							</div>
 							<div class="row">

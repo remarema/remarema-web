@@ -6,6 +6,8 @@
 <%@ page import="remarema.web.display.Version" %>
 <%@ page import="remarema.web.display.Node" %>
 <%@ page import="remarema.web.display.Deploy" %>
+<%@ page import="remarema.test.TestNode" %>
+
 <% 
 	//Creates Objects to call methods later
 								
@@ -29,10 +31,13 @@
 								<%
 								
 							      out.println("<h1>" + test.test() + "</h1>");				//Some Testings
-							      out.println("<h1>Insert some introduction here</h1>");						      
+							      out.println("<h1>Insert some introduction here</h1>");
+							      
+							      TestNode n = new TestNode();
+							      out.println(n.Test());
 							      
 							    %>
-							    
+							 </header>   
 							    
 						</div>
 					</section>

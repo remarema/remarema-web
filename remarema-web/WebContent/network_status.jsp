@@ -65,8 +65,7 @@
 
 							<form method="post" action="#">
 								<div class="row">
-									<div class="8u"><input type="text" name="parentID" value="<% out.println(status.getNodeNames().get(0)); %>" /></div>
-									<div class="2u"><a href="network_status.jsp?noderm=<% out.print(status.getNodeIDs().get(0)); %>&network=<% out.print(status.getNetworkID()); %>"><input id="inputbtn" type="text" value="Delete" disabled /></a></div>
+									<div class="10u"><input type="text" name="parentID" value="<% out.println(status.getNodeNames().get(0)); %>" /></div>
 									<div class="2u"><a href="node_status.jsp?node=<% out.print(status.getNodeIDs().get(0)); %>"><input id="inputbtn" type="text" value="View" disabled /></a></div>
 								</div>
 							</form>

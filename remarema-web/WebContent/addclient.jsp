@@ -19,6 +19,9 @@
 									<div class="12u"><input type="text" name="clientName" placeholder="Client Name" /></div>		
 								</div>
 								<div class="row">
+									<div class="12u"><input type="text" name="clientIP" placeholder="Client IP" /></div>		
+								</div>
+								<div class="row">
 									<div class="12u"><input type="text" name="clientNetwork" placeholder="Netzwerk wählen" /></div>		
 								</div>
 								<div class="row">

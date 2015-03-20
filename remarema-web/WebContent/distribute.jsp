@@ -34,7 +34,7 @@
 							</div>
 							
 							<p>
-								Derzeitige hinzugefügte Netzwerke/Clients.
+								Derzeitige hinzugefügte Netzwerke/Clients:
 							</p>
 
 								<div class="row">
