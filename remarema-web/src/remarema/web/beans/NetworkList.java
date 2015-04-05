@@ -16,7 +16,7 @@ public class NetworkList extends PageHelper {
 	 * @param pageEntries The number of networks, that should be displayed
 	 * @return A String with some networks, that can be displayed on a web-page
 	 */
-	public String NetworkList(int currentPage){
+	public String getList(int currentPage){
 		String page = "";
 		
 		if(currentPage == 0){		//Show the most recent updated networks

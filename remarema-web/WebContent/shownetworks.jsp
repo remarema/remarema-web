@@ -1,25 +1,4 @@
-<%@include file='template/menu.jsp'%>
-<%@ page import="remarema.web.main.Util" %>
-<%@ page import="remarema.web.beans.NetworkList" %>
-
-<% 
-	//Creates Objects to call methods later
-
-	Util util = new Util();
-	NetworkList nl = new NetworkList();
-	String currentPageNumber = request.getParameter("page");
-	int pageNumber = 0;
-	
-	try{							//If there is a page number -> parse it
-		pageNumber = Integer.parseInt(currentPageNumber);
-	}
-	catch(NumberFormatException e){	//If there's none: Don't parse it and start the if below
-		pageNumber = 0;
-	}
-	
-	nl.setPage(pageNumber);
-
-%>								  
+<%@include file='template/menu.jsp'%>								  
 
 
 <!-- 
@@ -37,21 +16,17 @@
 							
 							<div class="row">
 								<div class="12u" style="text-align: left;">
-									<div style=""><input type="checkbox" name="verteilen" value="true"><span style="font-size:x-large"><b><u>N1</u></b></span></div>
-									<div style="margin-left:5%;"><input type="checkbox" name="verteilen" value="true"><span style="font-size:large"><b>C1</b></span></div>
-									<div style="margin-left:10%;"><span style="font-size:medium">IP</span></div>
-									<div style="margin-left:10%;"><span style="font-size:medium">Softwarepackage 1</span></div>
-									<div style="margin-left:10%;"><span style="font-size:medium">Softwarepackage 2</span></div>
-									<div style="margin-left:10%;"><input type="checkbox" name="loeschen" value="true"><span style="font-size:medium">Löschen?</span></div>
+									<div style=""><span style="font-size:x-large"><b><u>Network</u></b></span></div>
+									<div style="margin-left:5%;"><span style="font-size:large"><b>Parent</b></span></div>
+									<div style="margin-left:5%;"><span style="font-size:medium">Edit Network</span></div>
 								</div>
 							</div>
 							
-							<% 
-								out.println(nl.NetworkList(pageNumber)); 
-							%>
+							${networkList}
+							
 							<div class ="row">
 								<div class="1u">
-									<form method="get" action="shownetworks.jsp">
+									<form method="get" action="/remarema/shownetworks">
 										<input type="hidden" name="page" value="1">
 										<input type="submit" value="<<">
 									</form>
@@ -60,8 +35,8 @@
 								<div class="1u"></div>
 								
 								<div class="1u">
-									<form method="get" action="shownetworks.jsp">
-										<input type="hidden" name="page" value="<% out.print(nl.getPageDecrement()); %>">
+									<form method="get" action="/remarema/shownetworks">
+										<input type="hidden" name="page" value="${pageDecrement}">
 										<input type="submit" value="<">
 									</form>
 								</div>
@@ -69,15 +44,15 @@
 								<div class="1u"></div>
 								
 								<div class="4u">
-									<form method="get" action="shownetworks.jsp">
+									<form method="get" action="/remarema/shownetworks">
 										<input type="hidden" name="page" value="0">
 										<input type="submit" value="Aktuellste">
 									</form>
 								</div>
 																
 								<div class="1u">
-									<form method="get" action="shownetworks.jsp">
-										<input type="hidden" name="page" value="<% out.print(nl.getPageIncrement()); %>">
+									<form method="get" action="/remarema/shownetworks">
+										<input type="hidden" name="page" value="${pageIncrement}">
 										<input type="submit" value=">">
 									</form>
 								</div>
@@ -85,8 +60,8 @@
 								<div class="1u"></div>
 								
 								<div class="1u">
-									<form method="get" action="shownetworks.jsp">
-										<input type="hidden" name="page" value="<% out.print(nl.getLastPage()); %>">
+									<form method="get" action="/remarema/shownetworks">
+										<input type="hidden" name="page" value="${lastPage}">
 										<input type="submit" value=">>">
 									</form>
 								</div>

@@ -12,6 +12,18 @@ public class NetworkStatus {
 	private ArrayList<String> nodeNames = new ArrayList<String>();
 	private ArrayList<Integer> nodeIDs = new ArrayList<Integer>();
 	
+	/*
+	 * Debug stuff
+	 */
+	public NetworkStatus(){
+		setNetworkID(1);
+		setNetworkName("asdf");
+		setNetworkParentID(111);
+		setNetworkParentName("parentname");
+		nodeNames.add("Node 01");
+		nodeIDs.add(5);
+	}
+	
 	public ArrayList<String> getNodeNames() {
 		return nodeNames;
 	}

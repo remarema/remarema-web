@@ -1,17 +1,4 @@
-<%@include file='template/menu.jsp'%>
-<%@ page import="remarema.web.main.Main" %>
-<%@ page import="remarema.web.main.Util" %>
-<%@ page import="remarema.web.display.Setting" %>
-<%@ page import="remarema.web.display.Test" %>
-<%@ page import="remarema.web.display.Version" %>
-<%@ page import="remarema.web.display.Node" %>
-<%@ page import="remarema.web.display.Deploy" %>
-<% 
-	//Creates Objects to call methods later
-
-	Util util = new Util();
-
-%>								  
+<%@include file='template/menu.jsp'%>						  
 
 
 <!-- 
@@ -23,11 +10,12 @@
 							<header>
 								<h2>Netzwerke und Clients</h2>
 							</header>
-							
-							
-							<p>Guide Stuff</p>
 								
-							<form method="post" action="#">
+							<p>Guide Stuff</p>
+							
+							<p>${message}</p>
+								
+							<form method="post" action="/remarema/distribute">
 							
 							<div class="row">
 								<div class="12u"><input type="text" placeholder="Clients/Netzwerke hinzufügen" /></div>
@@ -39,10 +27,10 @@
 
 								<div class="row">
 									<div class="6u">
-										<input type="text" placeholder="Softwaretyp" />
+										<input type="text" name="typ" placeholder="Softwaretyp" />
 									</div>
 									<div class="6u">
-										<input type="text" placeholder="Softwareversion" />
+										<input type="text" name="version" placeholder="Softwareversion" />
 									</div>
 								</div>
 								<div class="row">
@@ -50,7 +38,7 @@
 										<input type="text" placeholder="Zeitpunkt der Verteilung" disabled />
 									</div>
 									<div class="4u">	
-										<input type="text" name="zeitpunktVerteilung" value="<% out.print(util.getDateTime()); %>" id="datetimepicker" />
+										<input type="text" name="distribution" value="${time}" id="datetimepicker" />
 									</div>
 								</div>
 								<div class="row">
@@ -58,7 +46,7 @@
 										<input type="text" placeholder="Zeitpunkt der Installation" disabled />
 									</div>
 									<div class="4u">	
-										<input type="text" name="zeitpunktInstallation" value="<% out.print(util.getDateTime()); %>" id="datetimepicker02" />
+										<input type="text" name="installation" value="${time}" id="datetimepicker02" />
 									</div>
 								</div>
 								<div class="row">

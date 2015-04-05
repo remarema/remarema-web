@@ -10,17 +10,18 @@
 							</header>
 							
 							<p>Short description/guide</p>
+							<p>${message}</p>
 
-							<form method="post" action="#">
+							<form method="post" action="/remarema/addsoftware">
 								<div class="row">
-									<div class="8u"><input type="text" placeholder="Softwaredateien" /></div>
+									<div class="8u"><input type="text" name="data" placeholder="Softwaredateien" /></div>
 									<div class="4u">
 										<input type="submit" value="Software Upload" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="12u">
-										<input type="text" placeholder="Softwarepacket" />
+										<input type="text" name="packet" placeholder="Softwarepacket" />
 									</div>
 								</div>
 								<div class="row">

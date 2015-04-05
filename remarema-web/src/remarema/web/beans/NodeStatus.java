@@ -8,6 +8,14 @@ public class NodeStatus {
 	private String networkName;
 	private int networkID;
 	
+	public NodeStatus(){
+		nodeName = "test";
+		nodeIP = "192.168.1.1";
+		nodeID = 222;
+		networkName = "Tolles Netzwerk";
+		networkID = 123;
+	}
+	
 	public String getNodeIP() {
 		return nodeIP;
 	}

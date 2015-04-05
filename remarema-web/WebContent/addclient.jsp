@@ -12,9 +12,10 @@
 
 							
 							<p>Short description/guide</p>
+							<p>${message}</p>
 						
 							
-							<form method="post" action="#">
+							<form method="post" action="/remarema/addclient">
 								<div class="row">
 									<div class="12u"><input type="text" name="clientName" placeholder="Client Name" /></div>		
 								</div>
