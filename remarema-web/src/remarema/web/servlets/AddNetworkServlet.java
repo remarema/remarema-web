@@ -2,11 +2,13 @@ package remarema.web.servlets;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
+
+import remarema.api.*;
+import remarema.services.network.NetworkServiceBean;
 
 /**
  * Servlet implementation class AddNetworkServlet
@@ -14,6 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/addnetwork")
 public class AddNetworkServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	@Inject
+	private NetworkServiceBean networkService;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -34,15 +39,17 @@ public class AddNetworkServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("message", "Netzwerk erfolgreich erstellt!");
 		
 		String name = request.getParameter("name");
 		String parent = request.getParameter("parent");
-
-		request.setAttribute("name", name);
-		request.setAttribute("parent", parent);
-
 		
+		CreateNetwork createNetwork = new CreateNetwork();
+		createNetwork.setNetworkName(name);
+		createNetwork.setParentNetworkName(parent);
+		
+		networkService.execute(createNetwork);
+		
+		request.setAttribute("message", "Netzwerk erfolgreich erstellt!");
 		request.getRequestDispatcher("/addnetwork.jsp").forward(request, response);
 	}
 

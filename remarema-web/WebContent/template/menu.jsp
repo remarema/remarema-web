@@ -96,11 +96,15 @@
 				</div>
 				
 				<div class="bottom">
-
+<!--
+ mario: dieses Logo überdeckt auf kleinen Browserfenstern das Menü und dann können 
+ 	Menüpunkte nicht mehr ausgewählt werden. 
+ 	 
 						<ul class="icons">
+						
 							<li><a href="http://www.arz.at/" target="_blank"><span class="label"><img src="<%=request.getContextPath()%>/images/arz_logo.png"></img></span></a></li>
 						</ul>
-				
+	 -->			
 				</div>
 			
 			</div>

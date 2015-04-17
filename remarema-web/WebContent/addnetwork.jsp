@@ -16,10 +16,10 @@
 							
 							<form method="post" action="/remarema/addnetwork">
 								<div class="row">
-									<div class="12u"><input type="text" name="name" placeholder="Netzwerkname" /></div>
+									<div class="12u"><input type="text" name="name" value="${name}" placeholder="Netzwerkname" /></div>
 								</div>
 								<div class="row">
-									<div class="12u"><input type="text" name="parent" placeholder="Parent" /></div>
+									<div class="12u"><input type="text" name="parent" value="${parent}" placeholder="Parent" /></div>
 								</div>
 								<div class="row">
 									<div class="12u">
