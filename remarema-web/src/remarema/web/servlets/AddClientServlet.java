@@ -18,45 +18,51 @@ import remarema.services.network.NodeServiceBean;
 @WebServlet("/addclient")
 public class AddClientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private NodeServiceBean nodeService;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AddClientServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/addclient.jsp").forward(request, response);
+	public AddClientServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/addclient.jsp").forward(request,
+				response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("message", "Client erfolgreich erstellt!");
-		
+
 		String name = request.getParameter("clientName");
 		String ip = request.getParameter("clientIP");
 		String network = request.getParameter("clientNetwork");
-		
+
 		CreateNode createNode = new CreateNode();
 		createNode.setNodeName(name);
 		createNode.setNodeIP(ip);
 		createNode.setNodeNetworkName(network);
 
+		System.out.println("store new node");
 		nodeService.execute(createNode);
-		
 
 		request.setAttribute("message", "Node erfolgreich erstellt!");
-		request.getRequestDispatcher("/addclient.jsp").forward(request, response);
+		request.getRequestDispatcher("/addclient.jsp").forward(request,
+				response);
 	}
 
 }
