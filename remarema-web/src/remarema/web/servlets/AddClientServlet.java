@@ -2,11 +2,15 @@ package remarema.web.servlets;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import remarema.api.CreateNode;
+import remarema.services.network.NodeServiceBean;
 
 /**
  * Servlet implementation class AddClientServlet
@@ -14,6 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/addclient")
 public class AddClientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	@Inject
+	private NodeServiceBean nodeService;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -39,12 +46,16 @@ public class AddClientServlet extends HttpServlet {
 		String name = request.getParameter("clientName");
 		String ip = request.getParameter("clientIP");
 		String network = request.getParameter("clientNetwork");
-
-		request.setAttribute("clientName", name);
-		request.setAttribute("clientIP", ip);
-		request.setAttribute("clientNetwork", network);
-
 		
+		CreateNode createNode = new CreateNode();
+		createNode.setNodeName(name);
+		createNode.setNodeIP(ip);
+		createNode.setNodeNetworkName(network);
+
+		nodeService.execute(createNode);
+		
+
+		request.setAttribute("message", "Node erfolgreich erstellt!");
 		request.getRequestDispatcher("/addclient.jsp").forward(request, response);
 	}
 
