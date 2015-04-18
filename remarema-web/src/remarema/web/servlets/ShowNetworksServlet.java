@@ -2,12 +2,14 @@ package remarema.web.servlets;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import remarema.services.network.NetworkServiceBean;
 import remarema.web.beans.ClientList;
 import remarema.web.beans.NetworkList;
 
@@ -17,7 +19,7 @@ import remarema.web.beans.NetworkList;
 @WebServlet("/shownetworks")
 public class ShowNetworksServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -31,7 +33,7 @@ public class ShowNetworksServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		NetworkList nl = new NetworkList();
-		
+	
 		//Current page number
 		String currentPageNumber = request.getParameter("page");
 		int pageNumber = 0;

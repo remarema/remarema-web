@@ -81,7 +81,7 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><form action="/remarema/search"><input type="text" name="s" placeholder="Suche..." /></form></li>
+								<!-- <li><form action="/remarema/search"><input type="text" name="s" placeholder="Suche..." /></form></li>  -->
 								<li id="<%=utilitie.activeMenu(currentPage, "index.jsp")%>"><a href="/remarema/index"><span class="icon fa-home">Home</span></a></li>
 								<li id="<%=utilitie.activeMenu(currentPage, "distribute.jsp")%>"><a href="/remarema/distribute" id="distribute"><span class="icon fa-th">Software verteilen</span></a></li>
 								<li id="<%=utilitie.activeMenu(currentPage, "shownetworks.jsp")%>"><a href="/remarema/shownetworks" id="shownetworks"><span class="icon fa-th">Netzwerkstatus</span></a></li>
