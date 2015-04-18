@@ -1,37 +1,49 @@
-<%@include file='template/menu.jsp'%>						  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@include file='template/menu.jsp'%>
 
 <!-- 
 	Add networks and clients
  -->
-					<section id="hinzufuegen" class="two">
-						<div class="container">
+<section id="hinzufuegen" class="two">
+	<div class="container">
 
-							<header>
-								<h2>Netzwerk hinzufügen</h2>
-							</header>
+		<header>
+			<h2>Netzwerk hinzufügen</h2>
+		</header>
 
-							
-							<p>Short description/guide</p>
-							<p>${message}</p>
-							
-							<form method="post" action="/remarema/addnetwork">
-								<div class="row">
-									<div class="12u"><input type="text" name="name" value="${name}" placeholder="Netzwerkname" /></div>
-								</div>
-								<div class="row">
-									<div class="12u"><input type="text" name="parent" value="${parent}" placeholder="Parent" /></div>
-								</div>
-								<div class="row">
-									<div class="12u">
-										<input type="submit" value="Neues Netzwerk erstellen!" />
-									</div>
-								</div>
-							</form>
-							
+		<c:if test="${not form.valid}">
+			<c:forEach items="${form.messages}" var="msg">
+				<label for="${msg.id}" class="error">${msg.message}</label>
+			</c:forEach>
+		</c:if>
 
-						</div>
-					</section>
+		<p>Short description/guide</p>
+		<p>${message}</p>
 
-	</body>
- 	
+		<form method="post" action="/remarema/addnetwork">
+			<div class="row">
+				<div class="12u">
+					<input id="name" type="text" name="name" value="${form.name}"
+						placeholder="Netzwerkname" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="12u">
+					<input id="parent" type="text" name="parent" value="${form.parent}"
+						placeholder="Parent" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="12u">
+					<input type="submit" value="Neues Netzwerk erstellen!" />
+				</div>
+			</div>
+		</form>
+
+
+	</div>
+</section>
+
+</body>
+
 </html>

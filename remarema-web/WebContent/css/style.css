@@ -800,3 +800,9 @@
 	#inputbtn {
     	background: #0000CC;
 	}
+	
+
+label.error {
+	color: red;
+	display:block;
+}

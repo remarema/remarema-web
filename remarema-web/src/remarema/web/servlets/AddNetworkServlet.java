@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-import remarema.api.*;
+import remarema.api.CreateNetwork;
 import remarema.services.network.NetworkServiceBean;
 
 /**
@@ -26,8 +26,9 @@ public class AddNetworkServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/addnetwork.jsp").forward(request,
-				response);
+		AddNetworkForm form = new AddNetworkForm();
+		request.setAttribute("form", form);
+		show(request, response);
 	}
 
 	/**
@@ -37,20 +38,22 @@ public class AddNetworkServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		String name = request.getParameter("name");
-		String parent = request.getParameter("parent");
+		AddNetworkForm form = new AddNetworkForm();
+		request.setAttribute("form", form);
+		form.update(request);
 
-		CreateNetwork createNetwork = new CreateNetwork();
-		createNetwork.setNetworkName(name);
-		if (parent == null || parent.isEmpty()) {
-			createNetwork.setParentNetworkName(null);
-		} else {
-			createNetwork.setParentNetworkName(parent);
+		if (form.isValid()) {
+			CreateNetwork command = new CreateNetwork();
+			command.setNetworkName(form.getName());
+			command.setParentNetworkName(form.getParent());
+			networkService.execute(command);
+			request.setAttribute("message", "Netzwerk erfolgreich erstellt!");
 		}
+		show(request, response);
+	}
 
-		networkService.execute(createNetwork);
-
-		request.setAttribute("message", "Netzwerk erfolgreich erstellt!");
+	private void show(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.getRequestDispatcher("/addnetwork.jsp").forward(request,
 				response);
 	}
