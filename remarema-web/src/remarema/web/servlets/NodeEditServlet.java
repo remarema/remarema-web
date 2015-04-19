@@ -14,14 +14,14 @@ import remarema.web.beans.NodeStatus;
 /**
  * Servlet implementation class NodeStatusServlet
  */
-@WebServlet("/node_status")
-public class NodeStatusServlet extends HttpServlet {
+@WebServlet("/node_edit")
+public class NodeEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NodeStatusServlet() {
+    public NodeEditServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,23 +30,16 @@ public class NodeStatusServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		NodeStatus status = new NodeStatus();
-		
-		String id = request.getParameter("id");
+	
 		String name = request.getParameter("name");
 		String ip = request.getParameter("ip");
 		String networkName = request.getParameter("networkName");
 		String networkID = request.getParameter("networkID");
 		
-		status.setNodeID(Integer.parseInt(id));
 		
-		request.setAttribute("id", status.getNodeID());
-		request.setAttribute("name", status.getNodeName());
-		request.setAttribute("ip", status.getNodeIP());
-		request.setAttribute("networkName", status.getNetworkName());
-		request.setAttribute("networkID", status.getNetworkID());
 		
-		request.getRequestDispatcher("/node_status.jsp").forward(request, response);
+		
+		request.getRequestDispatcher("/node_edit.jsp").forward(request, response);
 	}
 
 	/**
@@ -54,24 +47,14 @@ public class NodeStatusServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("message", "Änderungen erfolgreich!");
-		
-		NodeStatus status = new NodeStatus();
-		
-		String id = request.getParameter("id");
+			
 		String name = request.getParameter("name");
 		String ip = request.getParameter("ip");
 		String networkName = request.getParameter("networkName");
 		String networkID = request.getParameter("networkID");
 		
-		status.setNodeID(Integer.parseInt(id));
 		
-		request.setAttribute("id", status.getNodeID());
-		request.setAttribute("name", status.getNodeName());
-		request.setAttribute("ip", status.getNodeIP());
-		request.setAttribute("networkName", status.getNetworkName());
-		request.setAttribute("networkID", status.getNetworkID());
-		
-		request.getRequestDispatcher("/node_status.jsp").forward(request, response);
+		request.getRequestDispatcher("/node_edit.jsp").forward(request, response);
 	}
 
 }

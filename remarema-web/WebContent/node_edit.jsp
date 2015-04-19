@@ -4,7 +4,7 @@
 						<div class="container">
 
 							<header>
-								<h2>Nodestatus</h2>
+								<h2>Node bearbeiten</h2>
 							</header>
 							
 							<p>${message}</p>

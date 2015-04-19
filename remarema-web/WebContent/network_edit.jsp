@@ -4,7 +4,7 @@
 						<div class="container">
 
 							<header>
-								<h2>Netzwerkstatus</h2>
+								<h2>Netzwerk bearbeiten</h2>
 							</header>
 							
 							<p>${message}</p>
