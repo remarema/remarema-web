@@ -11,10 +11,6 @@
 
 						<form method="post" action="/remarema/node_edit?id=${id}">
 							<div class="row">
-								<div class="2u"><input type="text" value="ID" disabled /></div>
-								<div class="10u"><input type="text" name="id" value="${id}" /></div>
-							</div>
-							<div class="row">
 								<div class="2u"><input type="text" value="Name" disabled /></div>
 								<div class="10u"><input type="text" name="name" value="${name}" /></div>
 							</div>

@@ -46,7 +46,6 @@ public class AddClientServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("message", "Client erfolgreich erstellt!");
 
 		String name = request.getParameter("clientName");
 		String ip = request.getParameter("clientIP");
@@ -56,8 +55,7 @@ public class AddClientServlet extends HttpServlet {
 		createNode.setNodeName(name);
 		createNode.setNodeIP(ip);
 		createNode.setNodeNetworkName(network);
-
-		System.out.println("store new node");
+		
 		nodeService.execute(createNode);
 
 		request.setAttribute("message", "Node erfolgreich erstellt!");

@@ -2,12 +2,15 @@ package remarema.web.servlets;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import remarema.api.UpdateNode;
+import remarema.services.network.NodeServiceBean;
 import remarema.web.beans.NetworkStatus;
 import remarema.web.beans.NodeStatus;
 
@@ -17,6 +20,9 @@ import remarema.web.beans.NodeStatus;
 @WebServlet("/node_edit")
 public class NodeEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	@Inject
+	private NodeServiceBean nodeService;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -31,13 +37,6 @@ public class NodeEditServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		String name = request.getParameter("name");
-		String ip = request.getParameter("ip");
-		String networkName = request.getParameter("networkName");
-		String networkID = request.getParameter("networkID");
-		
-		
-		
 		
 		request.getRequestDispatcher("/node_edit.jsp").forward(request, response);
 	}
