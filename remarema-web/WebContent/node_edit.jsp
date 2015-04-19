@@ -1,6 +1,6 @@
 <%@include file='template/menu.jsp'%>						  
 	
-					<section id="node_status" class="two">
+					<section id="node_edit" class="two">
 						<div class="container">
 
 							<header>
@@ -9,7 +9,7 @@
 							
 							<p>${message}</p>
 
-						<form method="post" action="/remarema/node_status?id=${id}">
+						<form method="post" action="/remarema/node_edit?id=${id}">
 							<div class="row">
 								<div class="2u"><input type="text" value="ID" disabled /></div>
 								<div class="10u"><input type="text" name="id" value="${id}" /></div>
@@ -26,7 +26,7 @@
 								<div class="2u"><input type="text" value="Network" disabled /></div>
 								<div class="2u"><input type="text" name="networkID" value="${networkID}" /></div>
 								<div class="6u"><input type="text" name="networkName" value="${networkName}" disabled /></div>
-								<div class="2u"><a href="/remarema/network_status?id=${networkID}"><input id="inputbtn" type="text" value="View" disabled /></a></div>
+								<div class="2u"><a href="/remarema/network_edit?id=${networkID}"><input id="inputbtn" type="text" value="View" disabled /></a></div>
 							</div>
 							<div class="row">
 									<div class="12u">
@@ -37,17 +37,13 @@
 						
 						<br /> <br />
 							<h3>Node löschen</h3>
-
-							<form method="post" action="/remarema/node_status?id=${id}&delete=true">
+							<form method="post" action="/remarema/node_edit?id=${id}&delete=true">
 								<div class="row">
 									<div class="12u">
 										<input type="submit" value="Löschen!" />
 									</div>
 								</div>
 							</form>
-							
-
-
 						</div>
 					</section>
 

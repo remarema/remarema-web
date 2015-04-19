@@ -12,7 +12,8 @@
 				<tr>
 					<th>Name</th>
 					<th>IP</th>
-					<th>Netzwerk</th>
+					<th>Netzwerk-Name</th>
+					<th>Softwareversion</th>
 				</tr>
 			</thead>
 
@@ -21,14 +22,14 @@
 					<tr>
 						<td>${item.nodeName}</td>
 						<td>${item.nodeIP}</td>
-						<td>${item.nodeNetworkID}
+						<td>${item.nodeNetworkName}</td>
+						<td>${item.softwareversion}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
 </section>
-
 
 </body>
 
