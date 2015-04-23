@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import remarema.api.NodeDetail;
 import remarema.api.UpdateNode;
 import remarema.services.network.NodeServiceBean;
 import remarema.web.beans.NetworkStatus;
@@ -38,6 +39,17 @@ public class NodeEditServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		
+		int nodeID = Integer.parseInt(request.getParameter("id"));
+		NodeDetail nodeDetail = new NodeDetail();
+		nodeDetail.setNodeID(nodeID);
+		NodeDetail nd = nodeService.getNodeDetailForNodeID(nodeDetail);
+		
+		
+		request.setAttribute("id", nd.getNodeID());
+		request.setAttribute("name", nd.getNodeName());
+		request.setAttribute("ip", nd.getNodeIP());
+		request.setAttribute("networkID", nd.getNodeNetworkID());
+		request.setAttribute("networkName", nd.getNodeNetworkName());
 		request.getRequestDispatcher("/node_edit.jsp").forward(request, response);
 	}
 
@@ -45,14 +57,22 @@ public class NodeEditServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("message", "Änderungen erfolgreich!");
-			
+		
+		int id = Integer.parseInt(request.getParameter("id"));
 		String name = request.getParameter("name");
 		String ip = request.getParameter("ip");
 		String networkName = request.getParameter("networkName");
 		String networkID = request.getParameter("networkID");
 		
+		UpdateNode updateNode = new UpdateNode();
+		updateNode.setNodeID(id);
+		updateNode.setNodeName(name);
+		updateNode.setNodeIP(ip);
+		updateNode.setNodeNetworkName(networkName);
 		
+		nodeService.nodeUpdate(updateNode);
+		
+		request.setAttribute("message", "Änderungen erfolgreich!");
 		request.getRequestDispatcher("/node_edit.jsp").forward(request, response);
 	}
 
