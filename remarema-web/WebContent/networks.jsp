@@ -11,7 +11,9 @@
 			<thead>
 				<tr>
 					<th>Name</th>
-					<th>Parent</th>
+					<th>Parent ID</th>
+					<th>Parent Name</th>
+					<th></th>
 				</tr>
 			</thead>
 
@@ -20,6 +22,9 @@
 					<tr>
 						<td>${item.networkName}</td>
 						<td>${item.networkParentID}</td>
+						<td>${item.networkParentName}</td>
+						<td><a href="/remarema/network_edit?id=${item.networkID}">bearbeiten</a></td>
+						
 					</tr>
 				</c:forEach>
 			</tbody>

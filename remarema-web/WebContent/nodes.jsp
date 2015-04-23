@@ -14,6 +14,7 @@
 					<th>IP</th>
 					<th>Netzwerk-Name</th>
 					<th>Softwareversion</th>
+					<th></th>
 				</tr>
 			</thead>
 
@@ -24,6 +25,7 @@
 						<td>${item.nodeIP}</td>
 						<td>${item.nodeNetworkName}</td>
 						<td>${item.softwareversion}</td>
+						<td><a href="/remarema/node_edit?id=${item.nodeID}">bearbeiten</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -83,15 +83,13 @@
 							<ul>
 								<!-- <li><form action="/remarema/search"><input type="text" name="s" placeholder="Suche..." /></form></li>  -->
 								<li id="<%=utilitie.activeMenu(currentPage, "index.jsp")%>"><a href="/remarema/index"><span class="icon fa-home">Home</span></a></li>
-								<li id="<%=utilitie.activeMenu(currentPage, "addnetwork.jsp")%>"><a href="/remarema/addnetwork" id="addnetwork"><span class="icon fa-user">Netzwerk hinzufügen</span></a></li>
-								<li id="<%=utilitie.activeMenu(currentPage, "addclient.jsp")%>"><a href="/remarema/addclient" id="addclient"><span class="icon fa-user">Client hinzufügen</span></a></li>
-								<li id="<%=utilitie.activeMenu(currentPage, "networks.jsp")%>"><a href="/remarema/networks" id="networks"><span class="icon fa-th">Netzwerke anzeigen</span></a></li>
-								<li id="<%=utilitie.activeMenu(currentPage, "nodes.jsp")%>"><a href="/remarema/nodes" id="nodes"><span class="icon fa-th">Clients anzeigen</span></a></li>
-								<li id="<%=utilitie.activeMenu(currentPage, "network_edit.jsp")%>"><a href="/remarema/network_edit" id="network_edit"><span class="icon fa-th">Netzwerk bearbeiten</span></a></li>
-								<li id="<%=utilitie.activeMenu(currentPage, "node_edit.jsp")%>"><a href="/remarema/node_edit" id="node_edit"><span class="icon fa-th">Client bearbeiten</span></a></li>
-								<li id="<%=utilitie.activeMenu(currentPage, "addsoftware.jsp")%>"><a href="/remarema/addsoftware" id="addsoftware"><span class="icon fa-user">Software hinzufügen</span></a></li>
-								<li id="<%=utilitie.activeMenu(currentPage, "distribute.jsp")%>"><a href="/remarema/distribute" id="distribute"><span class="icon fa-th">Software verteilen</span></a></li>
-								<li id="<%=utilitie.activeMenu(currentPage, "properties.jsp")%>"><a href="/remarema/properties" id="properties"><span class="icon fa-envelope">Einstellungen</span></a></li>
+								<li id="<%=utilitie.activeMenu(currentPage, "addnetwork.jsp")%>"><a href="/remarema/addnetwork" id="addnetwork"><span class="icon fa-desktop">Netzwerk hinzufügen</span></a></li>
+								<li id="<%=utilitie.activeMenu(currentPage, "addclient.jsp")%>"><a href="/remarema/addclient" id="addclient"><span class="icon fa-user-plus">Client hinzufügen</span></a></li>
+								<li id="<%=utilitie.activeMenu(currentPage, "networks.jsp")%>"><a href="/remarema/networks" id="networks"><span class="icon fa-desktop">Netzwerke anzeigen</span></a></li>
+								<li id="<%=utilitie.activeMenu(currentPage, "nodes.jsp")%>"><a href="/remarema/nodes" id="nodes"><span class="icon fa-user">Clients anzeigen</span></a></li>
+								<li id="<%=utilitie.activeMenu(currentPage, "addsoftware.jsp")%>"><a href="/remarema/addsoftware" id="addsoftware"><span class="icon fa-upload">Software hinzufügen</span></a></li>
+								<li id="<%=utilitie.activeMenu(currentPage, "distribute.jsp")%>"><a href="/remarema/distribute" id="distribute"><span class="icon fa-share-square">Software verteilen</span></a></li>
+								<li id="<%=utilitie.activeMenu(currentPage, "properties.jsp")%>"><a href="/remarema/properties" id="properties"><span class="icon fa-cogs">Einstellungen</span></a></li>
 							</ul>
 						</nav>
 						
