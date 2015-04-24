@@ -58,7 +58,7 @@ public class NetworkEditServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
+		Integer id = new Integer(request.getParameter("id"));
 		String action = request.getParameter("action");
 		
 		if(action.equals("update")){

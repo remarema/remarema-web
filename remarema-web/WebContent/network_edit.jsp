@@ -9,7 +9,7 @@
 							
 							<p>${message}</p>
 
-						<form method="post" action="/remarema/network_edit?network=${id}">
+						<form method="post" action="/remarema/network_edit?id=${id}">
 							<div class="row">
 								<div class="2u"><input type="text" value="Name" disabled /></div>
 								<div class="2u"><input type="text" name="id" value="${id}" disabled /></div>
@@ -42,7 +42,7 @@
 						<br /> <br />
 							<h3>Netzwerk löschen</h3>
 
-							<form method="post" action="/remarema/network_edit.jsp?network=${id}">
+							<form method="post" action="/remarema/network_edit.jsp?id=${id}">
 								<div class="row">
 									<div class="12u">
 										<input type="submit" value="Löschen!" />
