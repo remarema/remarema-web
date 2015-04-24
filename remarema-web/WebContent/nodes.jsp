@@ -6,6 +6,7 @@
 		<header>
 			<h2>Nodes</h2>
 		</header>
+		<p>${message}</p>
 
 		<table class="default">
 			<thead>

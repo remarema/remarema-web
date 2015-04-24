@@ -51,10 +51,6 @@ public class NodeEditServlet extends HttpServlet {
 		request.setAttribute("networkID", nd.getNodeNetworkID());
 		request.setAttribute("networkName", nd.getNodeNetworkName());
 		request.getRequestDispatcher("/node_edit.jsp").forward(request, response);
-		
-		if(request.getAttribute("delete").equals("true")){
-			nodeService.removeNode(nd);
-		}
 	}
 
 	/**
@@ -63,21 +59,44 @@ public class NodeEditServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int id = Integer.parseInt(request.getParameter("id"));
-		String name = request.getParameter("name");
-		String ip = request.getParameter("ip");
-		String networkName = request.getParameter("networkName");
-		String networkID = request.getParameter("networkID");
+		String action = request.getParameter("action");
+		if(action.equals("update")){
+			String name = request.getParameter("name");
+			String ip = request.getParameter("ip");
+			String networkName = request.getParameter("networkName");
+			String networkID = request.getParameter("networkID");
+			
+			UpdateNode updateNode = new UpdateNode();
+			updateNode.setNodeID(id);
+			updateNode.setNodeName(name);
+			updateNode.setNodeIP(ip);
+			updateNode.setNodeNetworkName(networkName);
 		
-		UpdateNode updateNode = new UpdateNode();
-		updateNode.setNodeID(id);
-		updateNode.setNodeName(name);
-		updateNode.setNodeIP(ip);
-		updateNode.setNodeNetworkName(networkName);
+			
+			request.setAttribute("id", id);
+			request.setAttribute("name", name);
+			request.setAttribute("ip", ip);
+			request.setAttribute("networkName", networkName);
+			nodeService.nodeUpdate(updateNode);
+			
+			NodeDetail nodeDetail = new NodeDetail();
+			nodeDetail.setNodeID(id);
+			NodeDetail nd = nodeService.getNodeDetailForNodeID(nodeDetail);
+			request.setAttribute("networkID", nd.getNodeNetworkID());
+			request.setAttribute("message", "Änderungen erfolgreich!");
+			request.getRequestDispatcher("/node_edit.jsp").forward(request, response);
+		}
+		else if(action.equals("delete")){
+			NodeDetail nodeDetail = new NodeDetail();
+			nodeDetail.setNodeID(id);
+			nodeService.removeNode(nodeDetail);
+			response.sendRedirect("/remarema/nodes?message=Löschen erfolgreich!");
+		}
+		else{
+			request.getRequestDispatcher("/node_edit.jsp").forward(request, response);
+		}
 		
-		nodeService.nodeUpdate(updateNode);
 		
-		request.setAttribute("message", "Änderungen erfolgreich!");
-		request.getRequestDispatcher("/node_edit.jsp").forward(request, response);
 	}
 
 }

@@ -12,7 +12,8 @@
 						<form method="post" action="/remarema/network_edit?network=${id}">
 							<div class="row">
 								<div class="2u"><input type="text" value="Name" disabled /></div>
-								<div class="10u"><input type="text" name="name" value="${name}" /></div>
+								<div class="2u"><input type="text" name="id" value="${id}" disabled /></div>
+								<div class="8u"><input type="text" name="name" value="${name}" /></div>
 							</div>
 							<div class="row">
 								<div class="2u"><input type="text" value="Parent" disabled /></div>
@@ -23,6 +24,7 @@
 							<div class="row">
 									<div class="12u">
 										<input type="submit" value="Netzwerk updaten!" />
+										<input type="hidden" name="action" value="update"/>
 									</div>
 							</div>
 						</form>
@@ -40,10 +42,11 @@
 						<br /> <br />
 							<h3>Netzwerk löschen</h3>
 
-							<form method="post" action="/remarema/network_edit.jsp?network=${id}&delete=true">
+							<form method="post" action="/remarema/network_edit.jsp?network=${id}">
 								<div class="row">
 									<div class="12u">
 										<input type="submit" value="Löschen!" />
+										<input type="hidden" name="action" value="delete"/>
 									</div>
 								</div>
 							</form>

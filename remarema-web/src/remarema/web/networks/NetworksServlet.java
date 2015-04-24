@@ -20,6 +20,8 @@ public class NetworksServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		String message = request.getParameter("message");
+		request.setAttribute("message", message);
 		List<NetworkDetail> networks = networkService.getNetworkDetailForAllNetworks();
 		request.setAttribute("networks", networks);
 		show(request, response);

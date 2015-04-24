@@ -27,17 +27,19 @@
 							</div>
 							<div class="row">
 									<div class="12u">
-										<input type="submit" value="Node updaten!" />
+										<input type="submit" value="Node updaten!"/>
+										<input type="hidden" name="action" value="update"/>
 									</div>
 							</div>
 						</form>
 						
 						<br /> <br />
 							<h3>Node löschen</h3>
-							<form method="post" action="/remarema/node_edit?id=${id}&delete=true">
+							<form method="post" action="/remarema/node_edit?id=${id}">
 								<div class="row">
 									<div class="12u">
-										<input type="submit" value="Löschen!" />
+										<input type="submit" value="Löschen!"/>
+										<input type="hidden" name="action" value="delete"/>
 									</div>
 								</div>
 							</form>

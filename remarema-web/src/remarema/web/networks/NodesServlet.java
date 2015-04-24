@@ -28,6 +28,9 @@ public class NodesServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		String message = request.getParameter("message");
+		request.setAttribute("message", message);
+		
 		List<NodeDetail> nodes = nodeService.getNodeDetailForAllNodes();
 		request.setAttribute("nodes", nodes);
 		show(request, response);
