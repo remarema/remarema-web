@@ -51,6 +51,10 @@ public class NodeEditServlet extends HttpServlet {
 		request.setAttribute("networkID", nd.getNodeNetworkID());
 		request.setAttribute("networkName", nd.getNodeNetworkName());
 		request.getRequestDispatcher("/node_edit.jsp").forward(request, response);
+		
+		if(request.getAttribute("delete").equals("true")){
+			nodeService.removeNode(nd);
+		}
 	}
 
 	/**
