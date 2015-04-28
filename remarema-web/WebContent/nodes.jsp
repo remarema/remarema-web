@@ -8,6 +8,19 @@
 		</header>
 		<p>${message}</p>
 
+		<form>
+		<div class="row">
+			<div class="9u">
+				<input type="text" name="s" placeholder="Suche..." />
+			</div>
+			<div class="3u">
+				<input type="submit" value="Suche" />
+			</div>
+			</div>
+		</form>
+		
+		<br />
+
 		<table class="default">
 			<thead>
 				<tr>
@@ -26,7 +39,7 @@
 						<td>${item.nodeIP}</td>
 						<td>${item.nodeNetworkName}</td>
 						<td>${item.softwareversion}</td>
-						<td><a href="/remarema/node_edit?id=${item.nodeID}">bearbeiten</a></td>
+						<td><a href="/remarema/node_edit?id=${item.nodeID}">Info</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
