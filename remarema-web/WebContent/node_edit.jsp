@@ -4,7 +4,7 @@
 						<div class="container">
 
 							<header>
-								<h2>Node bearbeiten</h2>
+								<h2>Client bearbeiten</h2>
 							</header>
 							
 							<p>${message}</p>
@@ -34,7 +34,7 @@
 						</form>
 						
 						<br /> <br />
-							<h3>Node löschen</h3>
+							<h3>Client löschen</h3>
 							<form method="post" action="/remarema/node_edit?id=${id}">
 								<div class="row">
 									<div class="12u">

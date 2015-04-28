@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="remarema.web.main.Util" %>
+<%@ page import="remarema.web.util.Util" %>
 <% 
 	//Creates Objects to call methods later
 
@@ -81,29 +81,19 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<!-- <li><form action="/remarema/search"><input type="text" name="s" placeholder="Suche..." /></form></li>  -->
-								<li id="<%=utilitie.activeMenu(currentPage, "index.jsp")%>"><a href="/remarema/index"><span class="icon fa-home">Home</span></a></li>
-								<li id="<%=utilitie.activeMenu(currentPage, "addnetwork.jsp")%>"><a href="/remarema/addnetwork" id="addnetwork"><span class="icon fa-desktop">Netzwerk hinzufügen</span></a></li>
-								<li id="<%=utilitie.activeMenu(currentPage, "addclient.jsp")%>"><a href="/remarema/addclient" id="addclient"><span class="icon fa-user-plus">Client hinzufügen</span></a></li>
-								<li id="<%=utilitie.activeMenu(currentPage, "networks.jsp")%>"><a href="/remarema/networks" id="networks"><span class="icon fa-desktop">Netzwerke anzeigen</span></a></li>
-								<li id="<%=utilitie.activeMenu(currentPage, "nodes.jsp")%>"><a href="/remarema/nodes" id="nodes"><span class="icon fa-user">Clients anzeigen</span></a></li>
-								<li id="<%=utilitie.activeMenu(currentPage, "addsoftware.jsp")%>"><a href="/remarema/addsoftware" id="addsoftware"><span class="icon fa-upload">Software hinzufügen</span></a></li>
+								<li id="<%=utilitie.activeMenu(currentPage, "home.jsp")%>"><a href="/remarema/home"><span class="icon fa-home">Home</span></a></li>
+								<li id="<%=utilitie.activeMenu(currentPage, "networks.jsp")%>"><a href="/remarema/networks" id="networks"><span class="icon fa-desktop">Netzwerkverwaltung</span></a></li>
+								<li id="<%=utilitie.activeMenu(currentPage, "nodes.jsp")%>"><a href="/remarema/nodes" id="nodes"><span class="icon fa-user">Clientverwaltung</span></a></li>
+								<li id="<%=utilitie.activeMenu(currentPage, "packages.jsp")%>"><a href="/remarema/packages" id="packages"><span class="icon fa-upload">Softwareverwaltung</span></a></li>
 								<li id="<%=utilitie.activeMenu(currentPage, "distribute.jsp")%>"><a href="/remarema/distribute" id="distribute"><span class="icon fa-share-square">Software verteilen</span></a></li>
+								</br>
+								<center><form action="/remarema/index" method="post"><input type="submit" value="Logout"><input type="hidden" name="action" value="logout"></form></center>
 							</ul>
 						</nav>
 						
 				</div>
 				
 				<div class="bottom">
-<!--
- mario: dieses Logo überdeckt auf kleinen Browserfenstern das Menü und dann können 
- 	Menüpunkte nicht mehr ausgewählt werden. 
- 	 
-						<ul class="icons">
-						
-							<li><a href="http://www.arz.at/" target="_blank"><span class="label"><img src="<%=request.getContextPath()%>/images/arz_logo.png"></img></span></a></li>
-						</ul>
-	 -->			
 				</div>
 			
 			</div>

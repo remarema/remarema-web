@@ -7,43 +7,54 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JFileChooser;
+
+import remarema.web.util.CookieHelper;
 
 /**
  * Servlet implementation class AddSoftwareServlet
  */
-@WebServlet("/addsoftware")
+@WebServlet("/package_edit")
 public class AddSoftwareServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AddSoftwareServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/addsoftware.jsp").forward(request, response);
+	public AddSoftwareServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("message", "Software erfolgreich hinzugefügt!");
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		if(CookieHelper.checkCookie(request, 4)){
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}
 		
-		String data = request.getParameter("data");
-		String packet = request.getParameter("packet");
+		request.getRequestDispatcher("/package_edit.jsp").forward(request,
+				response);
+	}
 
-		request.setAttribute("data", data);
-		request.setAttribute("packet", packet);
-
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		if(CookieHelper.checkCookie(request, 4)){
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}
 		
-		request.getRequestDispatcher("/addsoftware.jsp").forward(request, response);
+		request.setAttribute("message",
+				"Package erfolgreich ge&auml;ndert!");
+
+		request.getRequestDispatcher("/package_edit.jsp").forward(request,
+				response);
 	}
 
 }

@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import remarema.web.main.Util;
+import remarema.web.util.CookieHelper;
+import remarema.web.util.Util;
 
 /**
  * Servlet implementation class DistributeServlet
@@ -29,6 +30,10 @@ public class DistributeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(CookieHelper.checkCookie(request, 1)){
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}
+		
 		Util util = new Util();
 		String time = util.getDateTime();
 		
@@ -41,6 +46,10 @@ public class DistributeServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(CookieHelper.checkCookie(request, 1)){
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}
+		
 		request.setAttribute("message", "Verteilung erfolgreich angelegt!");
 		
 		String typ = request.getParameter("typ");

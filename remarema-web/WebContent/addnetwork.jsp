@@ -23,19 +23,13 @@
 		<form method="post" action="/remarema/addnetwork">
 			<div class="row">
 				<div class="12u">
-					<input id="name" type="text" name="name" value="${form.name}"
-						placeholder="Netzwerkname" />
+					<input id="name" type="text" name="name" value="Root" />
 				</div>
 			</div>
+
 			<div class="row">
 				<div class="12u">
-					<input id="parent" type="text" name="parent" value="${form.parent}"
-						placeholder="Parent" />
-				</div>
-			</div>
-			<div class="row">
-				<div class="12u">
-					<input type="submit" value="Neues Netzwerk erstellen!" />
+					<input type="submit" value="Root-Netzwerk erstellen!" />
 				</div>
 			</div>
 		</form>

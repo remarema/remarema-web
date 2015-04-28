@@ -7,10 +7,12 @@
 			<h2>Netzwerke</h2>
 		</header>
 		<p>${message}</p>
+		
 
 		<table class="default">
 			<thead>
 				<tr>
+					<th>ID</th>
 					<th>Name</th>
 					<th>Parent ID</th>
 					<th>Parent Name</th>
@@ -21,15 +23,25 @@
 			<tbody>
 				<c:forEach items="${networks}" var="item">
 					<tr>
+						<td>${item.networkID}</td>
 						<td>${item.networkName}</td>
 						<td>${item.networkParentID}</td>
 						<td>${item.networkParentName}</td>
-						<td><a href="/remarema/network_edit?id=${item.networkID}">bearbeiten</a></td>
+						<td><a href="/remarema/network_edit?id=${item.networkID}">Info</a></td>
 						
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		
+		<p></p>
+		<form method="get" action="/remarema/addnetwork">
+			<div class="row">
+				<div class="12u">
+					${root}
+				</div>
+			</div>
+		</form>
 	</div>
 </section>
 

@@ -8,27 +8,44 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
+import remarema.api.CreateNetwork;
 import remarema.api.NetworkDetail;
 import remarema.services.network.NetworkServiceBean;
+import remarema.web.util.CookieHelper;
 
 @WebServlet("/networks")
 public class NetworksServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private NetworkServiceBean networkService;
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		if(CookieHelper.checkCookie(request, 8)){
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}
+		
+		String action = request.getParameter("action");
+
+		
 		String message = request.getParameter("message");
 		request.setAttribute("message", message);
-		List<NetworkDetail> networks = networkService.getNetworkDetailForAllNetworks();
-		request.setAttribute("networks", networks);
+		List<NetworkDetail> networks = networkService
+				.getNetworkDetailForAllNetworks();
+		if (networks.isEmpty()) {
+			request.setAttribute("root", "<input type=\"submit\" value=\"Root-Netzwerk anlegen!\" />");
+		} else {
+			request.setAttribute("networks", networks);
+		}
 		show(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		if(CookieHelper.checkCookie(request, 8)){
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}	
 	}
 
 	private RequestDispatcher getPage(HttpServletRequest request) {

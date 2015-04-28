@@ -9,6 +9,7 @@ import javax.servlet.http.*;
 
 import remarema.api.CreateNetwork;
 import remarema.services.network.NetworkServiceBean;
+import remarema.web.util.CookieHelper;
 
 /**
  * Servlet implementation class AddNetworkServlet
@@ -26,8 +27,6 @@ public class AddNetworkServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		AddNetworkForm form = new AddNetworkForm();
-		request.setAttribute("form", form);
 		show(request, response);
 	}
 
@@ -37,23 +36,28 @@ public class AddNetworkServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-
-		AddNetworkForm form = new AddNetworkForm();
-		request.setAttribute("form", form);
-		form.update(request);
-
-		if (form.isValid()) {
-			CreateNetwork command = new CreateNetwork();
-			command.setNetworkName(form.getName());
-			command.setParentNetworkName(form.getParent());
-			networkService.execute(command);
-			request.setAttribute("message", "Netzwerk erfolgreich erstellt!");
+		
+		if(CookieHelper.checkCookie(request, 5)){
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
 		}
-		show(request, response);
+
+		String networkname = request.getParameter("name");
+
+		CreateNetwork command = new CreateNetwork();
+		command.setNetworkName(networkname);
+		networkService.execute(command);
+		request.setAttribute("message", "Root-Netzwerk erfolgreich erstellt!");
+
+		response.sendRedirect("/remarema/networks");
 	}
 
 	private void show(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		if(CookieHelper.checkCookie(request, 5)){
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}
+		
 		request.getRequestDispatcher("/addnetwork.jsp").forward(request,
 				response);
 	}

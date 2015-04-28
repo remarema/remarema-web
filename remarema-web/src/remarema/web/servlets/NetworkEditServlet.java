@@ -9,13 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import remarema.api.CreateNetwork;
+import remarema.api.CreateNode;
 import remarema.api.NetworkDetail;
 import remarema.api.NodeDetail;
 import remarema.api.UpdateNetwork;
 import remarema.api.UpdateNode;
 import remarema.services.network.ChildNotEmptyException;
 import remarema.services.network.NetworkServiceBean;
-import remarema.web.beans.NetworkStatus;
+import remarema.services.network.NodeServiceBean;
+import remarema.web.util.CookieHelper;
 
 /**
  * Servlet implementation class NetworkStatusServlet
@@ -26,6 +29,9 @@ public class NetworkEditServlet extends HttpServlet {
 	
 	@Inject
 	private NetworkServiceBean networkService;
+	
+	@Inject
+	private NodeServiceBean nodeService;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -39,6 +45,10 @@ public class NetworkEditServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(CookieHelper.checkCookie(request, 2)){
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}
+		
 		Integer networkID = new Integer(request.getParameter("id"));
 		
 		NetworkDetail networkDetail = new NetworkDetail();
@@ -58,13 +68,17 @@ public class NetworkEditServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(CookieHelper.checkCookie(request, 2)){
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}
+		
 		Integer id = new Integer(request.getParameter("id"));
+		String name = request.getParameter("name");
+		String parentID = request.getParameter("parentID");
+		String parentName = request.getParameter("parentName");
 		String action = request.getParameter("action");
 		
 		if(action.equals("update")){
-			String name = request.getParameter("name");
-			String parentID = request.getParameter("parentID");
-			String parentName = request.getParameter("parentName");
 			UpdateNetwork updateNetwork = new UpdateNetwork();
 			updateNetwork.setNetworkID(id);
 			updateNetwork.setNetworkName(name);
@@ -97,6 +111,42 @@ public class NetworkEditServlet extends HttpServlet {
 				e.printStackTrace();
 				request.getRequestDispatcher("/network_edit.jsp").forward(request, response);
 			}
+		}
+		else if(action.equals("insertChild")){
+			String childName = request.getParameter("childName");
+			
+			CreateNetwork command = new CreateNetwork();
+			command.setNetworkName(childName);
+			command.setParentNetworkName(name);
+			networkService.execute(command);
+			request.setAttribute("message", "Child erfolgreich erstellt!");
+			
+			request.setAttribute("id", id);
+			request.setAttribute("name", name);
+			request.setAttribute("parentName", parentName);
+			request.setAttribute("parentID", parentID);
+			
+			request.getRequestDispatcher("/network_edit.jsp").forward(request, response);
+		}
+		else if(action.equals("insertNode")){
+			String nodeName = request.getParameter("nodeName");
+			String nodeIP = request.getParameter("nodeIP");
+			
+			CreateNode createNode = new CreateNode();
+			createNode.setNodeName(nodeName);
+			createNode.setNodeIP(nodeIP);
+			createNode.setNodeNetworkName(name);
+			
+			nodeService.execute(createNode);
+
+			request.setAttribute("message", "Client erfolgreich erstellt!");
+			
+			request.setAttribute("id", id);
+			request.setAttribute("name", name);
+			request.setAttribute("parentName", parentName);
+			request.setAttribute("parentID", parentID);
+			
+			request.getRequestDispatcher("/network_edit.jsp").forward(request, response);
 		}
 		else{
 			request.getRequestDispatcher("/network_edit.jsp").forward(request, response);

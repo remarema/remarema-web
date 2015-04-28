@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import remarema.api.NodeDetail;
 import remarema.api.UpdateNode;
 import remarema.services.network.NodeServiceBean;
-import remarema.web.beans.NetworkStatus;
-import remarema.web.beans.NodeStatus;
+import remarema.web.util.CookieHelper;
 
 /**
  * Servlet implementation class NodeStatusServlet
@@ -37,7 +36,9 @@ public class NodeEditServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		if(CookieHelper.checkCookie(request, 3)){
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}
 		
 		int nodeID = Integer.parseInt(request.getParameter("id"));
 		NodeDetail nodeDetail = new NodeDetail();
@@ -57,6 +58,9 @@ public class NodeEditServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(CookieHelper.checkCookie(request, 3)){
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		String action = request.getParameter("action");

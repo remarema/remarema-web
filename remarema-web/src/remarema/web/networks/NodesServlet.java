@@ -15,6 +15,7 @@ import remarema.api.NetworkDetail;
 import remarema.api.NodeDetail;
 import remarema.services.network.NetworkServiceBean;
 import remarema.services.network.NodeServiceBean;
+import remarema.web.util.CookieHelper;
 
 /**
  * Servlet implementation class NodesServlet
@@ -28,6 +29,10 @@ public class NodesServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		if(CookieHelper.checkCookie(request, 9)){
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}
+		
 		String message = request.getParameter("message");
 		request.setAttribute("message", message);
 		
@@ -38,6 +43,9 @@ public class NodesServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		if(CookieHelper.checkCookie(request, 9)){
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}
 	}
 
 	private RequestDispatcher getPage(HttpServletRequest request) {

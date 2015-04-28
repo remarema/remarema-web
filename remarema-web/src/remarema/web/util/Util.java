@@ -1,4 +1,4 @@
-package remarema.web.main;
+package remarema.web.util;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

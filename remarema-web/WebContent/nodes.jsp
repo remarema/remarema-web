@@ -4,7 +4,7 @@
 <section id="node_status" class="two">
 	<div class="container">
 		<header>
-			<h2>Nodes</h2>
+			<h2>Clients</h2>
 		</header>
 		<p>${message}</p>
 
