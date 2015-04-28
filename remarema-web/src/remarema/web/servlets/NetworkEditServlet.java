@@ -83,7 +83,7 @@ public class NetworkEditServlet extends HttpServlet {
 			NetworkDetail nwd = networkService.getNetworkDetailForNetworkID(networkDetail);
 			request.setAttribute("parentID", nwd.getNetworkParentID());
 			
-			request.setAttribute("message", "Änderungen erfolgreich!");
+			request.setAttribute("message", "&Auml;nderungen erfolgreich!");
 			request.getRequestDispatcher("/network_edit.jsp").forward(request, response);
 		}
 		else if(action.equals("delete")){
@@ -91,7 +91,7 @@ public class NetworkEditServlet extends HttpServlet {
 			networkDetail.setNetworkID(id);
 			try {
 				networkService.removeNetwork(networkDetail);
-				response.sendRedirect("/remarema/networks?message=Löschen erfolgreich!");
+				response.sendRedirect("/remarema/networks?message=LÃ¶schen erfolgreich!");
 			} catch (ChildNotEmptyException e) {
 				request.setAttribute("message", e.getMessage());
 				e.printStackTrace();

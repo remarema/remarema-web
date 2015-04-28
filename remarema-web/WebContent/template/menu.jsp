@@ -89,7 +89,6 @@
 								<li id="<%=utilitie.activeMenu(currentPage, "nodes.jsp")%>"><a href="/remarema/nodes" id="nodes"><span class="icon fa-user">Clients anzeigen</span></a></li>
 								<li id="<%=utilitie.activeMenu(currentPage, "addsoftware.jsp")%>"><a href="/remarema/addsoftware" id="addsoftware"><span class="icon fa-upload">Software hinzufügen</span></a></li>
 								<li id="<%=utilitie.activeMenu(currentPage, "distribute.jsp")%>"><a href="/remarema/distribute" id="distribute"><span class="icon fa-share-square">Software verteilen</span></a></li>
-								<li id="<%=utilitie.activeMenu(currentPage, "properties.jsp")%>"><a href="/remarema/properties" id="properties"><span class="icon fa-cogs">Einstellungen</span></a></li>
 							</ul>
 						</nav>
 						

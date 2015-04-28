@@ -83,14 +83,14 @@ public class NodeEditServlet extends HttpServlet {
 			nodeDetail.setNodeID(id);
 			NodeDetail nd = nodeService.getNodeDetailForNodeID(nodeDetail);
 			request.setAttribute("networkID", nd.getNodeNetworkID());
-			request.setAttribute("message", "Änderungen erfolgreich!");
+			request.setAttribute("message", "&Auml;nderungen erfolgreich!");
 			request.getRequestDispatcher("/node_edit.jsp").forward(request, response);
 		}
 		else if(action.equals("delete")){
 			NodeDetail nodeDetail = new NodeDetail();
 			nodeDetail.setNodeID(id);
 			nodeService.removeNode(nodeDetail);
-			response.sendRedirect("/remarema/nodes?message=Löschen erfolgreich!");
+			response.sendRedirect("/remarema/nodes?message=LÃ¶schen erfolgreich!");
 		}
 		else{
 			request.getRequestDispatcher("/node_edit.jsp").forward(request, response);

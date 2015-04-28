@@ -42,7 +42,7 @@
 						<br /> <br />
 							<h3>Netzwerk löschen</h3>
 
-							<form method="post" action="/remarema/network_edit.jsp?id=${id}">
+							<form method="post" action="/remarema/network_edit?id=${id}">
 								<div class="row">
 									<div class="12u">
 										<input type="submit" value="Löschen!" />

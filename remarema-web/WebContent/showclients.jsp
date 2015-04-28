@@ -15,7 +15,7 @@
 							
 							<div class="row">
 								<div class="12u" style="text-align: left;">
-									<div style=""><input type="checkbox" name="verteilen" value="true"><span style="font-size:x-large"><b><u>Client 1</u></b></span></div>
+									<div style=""><span style="font-size:x-large"><b><u>Client 1</u></b></span></div>
 									<div style="margin-left:5%;"><span style="font-size:large"><b>Network</b></span></div>
 									<div style="margin-left:5%;"><span style="font-size:medium">IP</span></div>
 									<div style="margin-left:5%;"><span style="font-size:medium">Softwarepackages</span></div>

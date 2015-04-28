@@ -6,7 +6,6 @@ import remarema.services.network.NodeServiceBean;
 
 public class TestNode {
 
-	@PersistenceContext
 	protected EntityManager em;
 
 	public TestNode() {
