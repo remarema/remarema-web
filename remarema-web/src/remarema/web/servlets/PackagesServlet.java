@@ -1,13 +1,20 @@
 package remarema.web.servlets;
 
 import java.io.IOException;
+import java.util.List;
 
+import javax.inject.Inject;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import remarema.api.CreatePackage;
+import remarema.api.NetworkDetail;
+import remarema.api.PackageDetail;
+import remarema.services.software.SoftwarepackageServiceBean;
 import remarema.web.util.CookieHelper;
 
 /**
@@ -16,6 +23,9 @@ import remarema.web.util.CookieHelper;
 @WebServlet("/packages")
 public class PackagesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	@Inject
+	public SoftwarepackageServiceBean packageService;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -31,12 +41,19 @@ public class PackagesServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		if(CookieHelper.checkCookie(request, 6)){
-			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		if (CookieHelper.checkCookie(request, 6)) {
+			request.getRequestDispatcher("/error.jsp").forward(request,
+					response);
 		}
 		
-		request.getRequestDispatcher("/packages.jsp").forward(request,
-				response);
+		List<PackageDetail> packages = packageService
+				.getPackageDetailForAllPackages();
+
+		request.setAttribute("packages", packages);
+		show(request, response);
+
+		request.getRequestDispatcher("/packages.jsp")
+				.forward(request, response);
 	}
 
 	/**
@@ -45,23 +62,36 @@ public class PackagesServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		if(CookieHelper.checkCookie(request, 6)){
-			request.getRequestDispatcher("/error.jsp").forward(request, response);
-		}
-		
-		String action = request.getParameter("action");
-		
-		if(action.equals("insert")){
-			String name = request.getParameter("name");
-	
-	
-	
-			request.setAttribute("message",
-					"Package erfolgreich hinzugef&uuml;gt!");
+		if (CookieHelper.checkCookie(request, 6)) {
+			request.getRequestDispatcher("/error.jsp").forward(request,
+					response);
 		}
 
-		request.getRequestDispatcher("/packages.jsp").forward(request,
-				response);
+		String action = request.getParameter("action");
+
+		if (action.equals("insert")) {
+			String name = request.getParameter("name");
+			CreatePackage pkg = new CreatePackage();
+			pkg.setSoftwarepackageName(name);
+
+			packageService.execute(pkg);
+
+			request.setAttribute("message",
+					"Package erfolgreich hinzugef&uuml;gt!");
+			request.getRequestDispatcher("/packages.jsp")
+			.forward(request, response);
+		}
 	}
+	
+	private RequestDispatcher getPage(HttpServletRequest request) {
+		return request.getRequestDispatcher("/packages.jsp");
+	}
+	
+	private void show(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = getPage(request);
+		dispatcher.forward(request, response);
+	}
+
 
 }

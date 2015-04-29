@@ -7,7 +7,25 @@
 			<h2>Softwarepackages</h2>
 		</header>
 		<p>${message}</p>
-		
+
+		<h3>Package hinzufügen</h3>
+
+		<form method="post" action="/remarema/packages">
+			<div class="row">
+				<div class="12u">
+					<input type="text" name="name" placeholder="Package Name" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="12u">
+					<input type="submit" value="Package anlegen!" /> <input
+						type="hidden" name="action" value="insert" />
+				</div>
+			</div>
+		</form>
+
+		<br /> <br />
+
 
 		<table class="default">
 			<thead>
@@ -19,31 +37,19 @@
 			</thead>
 
 			<tbody>
-				<c:forEach items="${networks}" var="item">
+				<c:forEach items="${packages}" var="item">
 					<tr>
-						<td>${item.networkID}</td>
-						<td>${item.networkName}</td>
-						<td><a href="/remarema/package_edit?id=${item.networkID}">Info</a></td>
-						
+						<td>${item.softwarepackageID}</td>
+						<td>${item.softwarepackageName}</td>
+						<td><a
+							href="/remarema/package_edit?id=${item.softwarepackageID}">Info</a></td>
+
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		
-		<br /> <br />
-							<h3>Package hinzufügen</h3>
 
-							<form method="post" action="/remarema/packages">
-								<div class="row">
-									<div class="12u"><input type="text" name="name" placeholder="Package Name" /></div>
-								</div>
-							<div class="row">
-									<div class="12u">
-										<input type="submit" value="Package anlegen!" />
-										<input type="hidden" name="action" value="insert"/>
-									</div>
-							</div>
-							</form>
+
 	</div>
 </section>
 
