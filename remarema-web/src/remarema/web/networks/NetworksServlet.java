@@ -10,6 +10,7 @@ import javax.servlet.http.*;
 
 import remarema.api.CreateNetwork;
 import remarema.api.NetworkDetail;
+import remarema.api.NodeDetail;
 import remarema.services.network.NetworkServiceBean;
 import remarema.web.util.CookieHelper;
 
@@ -22,19 +23,21 @@ public class NetworksServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		if(CookieHelper.checkCookie(request, 8)){
-			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		if (CookieHelper.checkCookie(request, 8)) {
+			request.getRequestDispatcher("/error.jsp").forward(request,
+					response);
 		}
-		
-		String action = request.getParameter("action");
 
-		
 		String message = request.getParameter("message");
 		request.setAttribute("message", message);
+
 		List<NetworkDetail> networks = networkService
 				.getNetworkDetailForAllNetworks();
+		
+		
 		if (networks.isEmpty()) {
-			request.setAttribute("root", "<input type=\"submit\" value=\"Root-Netzwerk anlegen!\" />");
+			request.setAttribute("root",
+					"<input type=\"submit\" value=\"Root-Netzwerk anlegen!\" />");
 		} else {
 			request.setAttribute("networks", networks);
 		}
@@ -43,9 +46,24 @@ public class NetworksServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		if(CookieHelper.checkCookie(request, 8)){
-			request.getRequestDispatcher("/error.jsp").forward(request, response);
-		}	
+		if (CookieHelper.checkCookie(request, 8)) {
+			request.getRequestDispatcher("/error.jsp").forward(request,
+					response);
+		}
+
+			String action = request.getParameter("action");
+			if (action.equals("suche")) {
+				String networkName = request.getParameter("s");
+
+				NetworkDetail networkDetail = new NetworkDetail();
+				networkDetail.setNetworkName(networkName);
+
+				List<NetworkDetail> networks = networkService
+						.getNetworkDetailForNetworkName(networkDetail);
+				request.setAttribute("networks", networks);
+
+				show(request, response);
+			}
 	}
 
 	private RequestDispatcher getPage(HttpServletRequest request) {

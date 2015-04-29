@@ -8,13 +8,14 @@
 		</header>
 		<p>${message}</p>
 
-		<form>
+		<form method= "post">
 			<div class="row">
 				<div class="9u">
 					<input type="text" name="s" placeholder="Suche..." />
 				</div>
 				<div class="3u">
 					<input type="submit" value="Suche" />
+					<input type="hidden" name="action" value="suche">
 				</div>
 			</div>
 		</form>

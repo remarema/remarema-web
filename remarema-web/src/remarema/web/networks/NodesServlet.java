@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import remarema.api.NetworkDetail;
 import remarema.api.NodeDetail;
-import remarema.services.network.NetworkServiceBean;
 import remarema.services.network.NodeServiceBean;
 import remarema.web.util.CookieHelper;
 
@@ -23,19 +21,20 @@ import remarema.web.util.CookieHelper;
 @WebServlet("/nodes")
 public class NodesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private NodeServiceBean nodeService;
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		if(CookieHelper.checkCookie(request, 9)){
-			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		if (CookieHelper.checkCookie(request, 9)) {
+			request.getRequestDispatcher("/error.jsp").forward(request,
+					response);
 		}
-		
+
 		String message = request.getParameter("message");
 		request.setAttribute("message", message);
-		
+
 		List<NodeDetail> nodes = nodeService.getNodeDetailForAllNodes();
 		request.setAttribute("nodes", nodes);
 		show(request, response);
@@ -43,9 +42,25 @@ public class NodesServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		if(CookieHelper.checkCookie(request, 9)){
-			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		if (CookieHelper.checkCookie(request, 9)) {
+			request.getRequestDispatcher("/error.jsp").forward(request,
+					response);
 		}
+
+		String action = request.getParameter("action");
+		if (action.equals("suche")) {
+			String nodeName = request.getParameter("s");
+
+			NodeDetail nodeDetail = new NodeDetail();
+			nodeDetail.setNodeName(nodeName);
+
+			List<NodeDetail> nodes = nodeService
+					.getNodeDetailForNodeName(nodeDetail);
+			request.setAttribute("nodes", nodes);
+
+			show(request, response);
+		}
+
 	}
 
 	private RequestDispatcher getPage(HttpServletRequest request) {
