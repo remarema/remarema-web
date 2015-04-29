@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import remarema.api.CreatePackage;
 import remarema.api.NetworkDetail;
 import remarema.api.PackageDetail;
+import remarema.services.network.IPAddress;
 import remarema.services.software.SoftwarepackageServiceBean;
 import remarema.web.util.CookieHelper;
 
@@ -53,7 +54,6 @@ public class PackagesServlet extends HttpServlet {
 				.getPackageDetailForAllPackages();
 
 		request.setAttribute("packages", packages);
-//		show(request, response);
 
 		request.getRequestDispatcher("/packages.jsp")
 				.forward(request, response);
@@ -74,27 +74,22 @@ public class PackagesServlet extends HttpServlet {
 
 		if (action.equals("insert")) {
 			String name = request.getParameter("name");
+			
 			CreatePackage pkg = new CreatePackage();
 			pkg.setSoftwarepackageName(name);
 
 			packageService.execute(pkg);
 
+			List<PackageDetail> packages = packageService
+					.getPackageDetailForAllPackages();
+
+			request.setAttribute("packages", packages);
 			request.setAttribute("message",
 					"Package erfolgreich hinzugef&uuml;gt!");
 			request.getRequestDispatcher("/packages.jsp")
 			.forward(request, response);
 		}
 	}
-	
-//	private RequestDispatcher getPage(HttpServletRequest request) {
-//		return request.getRequestDispatcher("/packages.jsp");
-//	}
-//	
-//	private void show(HttpServletRequest request, HttpServletResponse response)
-//			throws ServletException, IOException {
-//		RequestDispatcher dispatcher = getPage(request);
-//		dispatcher.forward(request, response);
-//	}
 
 
 }
