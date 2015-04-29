@@ -1,4 +1,4 @@
-package remarema.web.servlets;
+package remarema.web.software;
 
 import java.io.IOException;
 
