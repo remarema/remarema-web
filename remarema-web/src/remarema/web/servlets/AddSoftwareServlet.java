@@ -14,7 +14,7 @@ import remarema.web.util.CookieHelper;
 /**
  * Servlet implementation class AddSoftwareServlet
  */
-@WebServlet("/package_edit")
+@WebServlet("/addSoftware")
 public class AddSoftwareServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

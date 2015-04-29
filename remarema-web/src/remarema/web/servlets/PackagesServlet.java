@@ -46,11 +46,14 @@ public class PackagesServlet extends HttpServlet {
 					response);
 		}
 		
+		String message = request.getParameter("message");
+		request.setAttribute("message", message);
+		
 		List<PackageDetail> packages = packageService
 				.getPackageDetailForAllPackages();
 
 		request.setAttribute("packages", packages);
-		show(request, response);
+//		show(request, response);
 
 		request.getRequestDispatcher("/packages.jsp")
 				.forward(request, response);
@@ -83,15 +86,15 @@ public class PackagesServlet extends HttpServlet {
 		}
 	}
 	
-	private RequestDispatcher getPage(HttpServletRequest request) {
-		return request.getRequestDispatcher("/packages.jsp");
-	}
-	
-	private void show(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		RequestDispatcher dispatcher = getPage(request);
-		dispatcher.forward(request, response);
-	}
+//	private RequestDispatcher getPage(HttpServletRequest request) {
+//		return request.getRequestDispatcher("/packages.jsp");
+//	}
+//	
+//	private void show(HttpServletRequest request, HttpServletResponse response)
+//			throws ServletException, IOException {
+//		RequestDispatcher dispatcher = getPage(request);
+//		dispatcher.forward(request, response);
+//	}
 
 
 }

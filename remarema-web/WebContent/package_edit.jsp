@@ -22,6 +22,15 @@
 									</div>
 							</div>
 						</form>
+						<br />
+						<form method="post" action="/remarema/package_edit?id=${id}">
+								<div class="row">
+									<div class="12u">
+										<input type="submit" value="Löschen!" />
+										<input type="hidden" name="action" value="delete"/>
+									</div>
+								</div>
+							</form>
 						
 						<br /> <br />
 							<h3>Software hinzufügen</h3>
@@ -49,17 +58,7 @@
 								</div>
 							</form>					
 							
-						<br /> <br />
-							<h3>Package löschen</h3>
-
-							<form method="post" action="/remarema/package_edit?id=${id}">
-								<div class="row">
-									<div class="12u">
-										<input type="submit" value="Löschen!" />
-										<input type="hidden" name="action" value="delete"/>
-									</div>
-								</div>
-							</form>
+						
 
 						</div>
 					</section>
