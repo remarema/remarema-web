@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import remarema.api.NodeDetail;
 import remarema.api.UpdateNode;
+import remarema.services.network.IPNotValidException;
 import remarema.services.network.NodeServiceBean;
 import remarema.web.util.CookieHelper;
 
@@ -81,7 +82,15 @@ public class NodeEditServlet extends HttpServlet {
 			request.setAttribute("name", name);
 			request.setAttribute("ip", ip);
 			request.setAttribute("networkName", networkName);
-			nodeService.nodeUpdate(updateNode);
+			
+			try {
+				nodeService.nodeUpdate(updateNode);
+			} catch (IPNotValidException e) {
+				request.setAttribute("message", e.getMessage());
+				e.printStackTrace();
+				request.getRequestDispatcher("/node_edit.jsp").forward(
+						request, response);
+			}
 			
 			NodeDetail nodeDetail = new NodeDetail();
 			nodeDetail.setNodeID(id);

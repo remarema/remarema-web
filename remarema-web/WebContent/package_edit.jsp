@@ -32,8 +32,8 @@
 		<form method="post" action="/remarema/package_edit?id=${id}">
 			<div class="row">
 				<div class="12u">
-					<input type="submit" value="Löschen!" /> <input type="hidden"
-						name="action" value="delete" />
+					<input type="submit" value="Löschen!" /> 
+					<input type="hidden" name="action" value="delete" />
 				</div>
 			</div>
 		</form>
@@ -47,15 +47,19 @@
 					<input type="text" value="Name" disabled />
 				</div>
 				<div class="10u">
-					<input type="text" name="name" value="${softwareName}" />
+					<input type="text" name="software" value="${softwareName}" />
 				</div>
-				<div class="12u">
-					<input type="file" name="newSoftware" value="Durchsuchen" />
+				<div class="2u">
+					<input type="text" value="Pfad" disabled />
+				</div>
+				<div class="10u">
+					<input type="text" name="pfad" value="${softwarePath}" />
 				</div>
 			</div>
 			<div class="row">
 				<div class="12u">
 					<input type="submit" value="Neue Software hinzufügen!" />
+					<input type="hidden" name="action" value="addSoftware" />
 				</div>
 			</div>
 		</form>
@@ -70,6 +74,7 @@
 				</div>
 				<div class="2u">
 					<input type="submit" value="Wählen" />
+					
 				</div>
 			</div>
 		</form>

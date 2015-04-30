@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import remarema.api.NodeDetail;
+import remarema.api.CreateSoftwareversion;
 import remarema.api.PackageDetail;
-import remarema.api.UpdateNode;
 import remarema.api.UpdatePackage;
 import remarema.services.software.SoftwarepackageServiceBean;
+import remarema.services.software.SoftwareversionServiceBean;
 import remarema.web.util.CookieHelper;
 
 /**
@@ -24,6 +24,7 @@ public class PackageEditServlet extends HttpServlet {
 	
 	@Inject
 	public SoftwarepackageServiceBean packageService;
+	public SoftwareversionServiceBean softwareService;
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -62,17 +63,17 @@ public class PackageEditServlet extends HttpServlet {
 		}
 		
 		Integer packageID = new Integer(request.getParameter("id"));
+		String packageName = request.getParameter("name");
 		
 		String action = request.getParameter("action");
 		if(action.equals("update")){
-			String name = request.getParameter("name");
 			
 			UpdatePackage updatePackage = new UpdatePackage();
 			updatePackage.setSoftwarepackageID(packageID);
-			updatePackage.setSoftwarepackageName(name);
+			updatePackage.setSoftwarepackageName(packageName);
 			
 			request.setAttribute("id", packageID);
-			request.setAttribute("name", name);
+			request.setAttribute("name", packageName);
 			packageService.updatePackage(updatePackage);
 			
 			PackageDetail packageDetail = new PackageDetail();
@@ -89,6 +90,20 @@ public class PackageEditServlet extends HttpServlet {
 			packageDetail.setSoftwarepackageID(packageID);
 			packageService.removePackage(packageDetail);
 			response.sendRedirect("/remarema/packages?message=Löschen erfolgreich!");
+		}
+		else if(action.equals("addSoftware")){
+			String softwareName = request.getParameter("softwarename");
+			String softwarePath = request.getParameter("pfad");
+			
+			CreateSoftwareversion version = new CreateSoftwareversion();
+			version.setSoftwareName(softwareName);
+			version.setSoftwarePath(softwarePath);
+			version.setSoftwarepackageID(packageID);
+			
+			softwareService.execute(version);
+			
+			request.setAttribute("message", "Softwareversion wurde erfolgreich hinzugef&uuml;gt!");
+			request.getRequestDispatcher("/package_edit.jsp").forward(request, response);
 		}
 		else{
 			request.getRequestDispatcher("/package_edit.jsp").forward(request, response);
