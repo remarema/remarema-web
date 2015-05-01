@@ -32,8 +32,8 @@
 		<form method="post" action="/remarema/package_edit?id=${id}">
 			<div class="row">
 				<div class="12u">
-					<input type="submit" value="Löschen!" /> 
-					<input type="hidden" name="action" value="delete" />
+					<input type="submit" value="Löschen!" /> <input type="hidden"
+						name="action" value="delete" />
 				</div>
 			</div>
 		</form>
@@ -43,26 +43,24 @@
 
 		<form method="post" action="/remarema/package_edit?id=${id}">
 			<div class="row">
-			<div class="2u">
-					<input type="text" value="Name" disabled />
+				<div class="12u">
+					<input type="text" name="softwareName" placeholder="Softwarename"
+						value="${softwareName}" />
 				</div>
-				<div class="10u">
-					<input type="text" name="software" value="${softwareName}" />
-				</div>
-				<div class="2u">
-					<input type="text" value="Pfad" disabled />
-				</div>
-				<div class="10u">
-					<input type="text" name="pfad" value="${softwarePath}" />
+				<div class="12u">
+					<input type="text" name="softwarePath" placeholder="Software Pfad"
+						value="${softwarePath}" />
 				</div>
 			</div>
 			<div class="row">
 				<div class="12u">
-					<input type="submit" value="Neue Software hinzufügen!" />
-					<input type="hidden" name="action" value="addSoftware" />
+					<input type="submit" value="Neue Software hinzufügen!" /> <input
+						type="hidden" name="action" value="addSoftware" /> <input
+						type="hidden" name="name" value="${name}" />
 				</div>
 			</div>
 		</form>
+
 
 		<br /> <br />
 		<h3>Verfügbare Softwareversionen</h3>
@@ -74,7 +72,7 @@
 				</div>
 				<div class="2u">
 					<input type="submit" value="Wählen" />
-					
+
 				</div>
 			</div>
 		</form>
