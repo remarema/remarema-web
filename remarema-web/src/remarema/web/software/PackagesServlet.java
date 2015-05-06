@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,9 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import remarema.api.CreatePackage;
-import remarema.api.NetworkDetail;
 import remarema.api.PackageDetail;
-import remarema.services.network.IPAddress;
 import remarema.services.software.SoftwarepackageServiceBean;
 import remarema.web.util.CookieHelper;
 

@@ -29,13 +29,9 @@ public class CookieHelper {
 	}
 	
 	public static void deleteCookie(HttpServletRequest request, HttpServletResponse response){
-		for (Cookie cookie : request.getCookies()) {
-		    cookie.setValue("");
-		    cookie.setMaxAge(-1);
-		    cookie.setPath("/");
-
-		    response.addCookie(cookie);
-		}
+		Cookie cookie = new Cookie("right", "");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
 	}
 
 }

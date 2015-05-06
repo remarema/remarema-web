@@ -146,11 +146,12 @@ public class NetworkEditServlet extends HttpServlet {
 
 			try {
 				nodeService.execute(createNode);
+				request.setAttribute("message", "Client erfolgreich erstellt!");
 			} catch (IPNotValidException e) {
-				e.printStackTrace();
+				request.setAttribute("message", e.getMessage());
 			}
 
-			request.setAttribute("message", "Client erfolgreich erstellt!");
+			
 
 			request.setAttribute("id", id);
 			request.setAttribute("name", name);

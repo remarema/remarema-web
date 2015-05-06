@@ -59,7 +59,7 @@ public class IndexServlet extends HttpServlet {
 			try {
 				int right = userService.checkUser(usd);
 				Cookie userRight = new Cookie("right",right+"");
-				userRight.setMaxAge(30*60);
+				userRight.setMaxAge(60*60*24*7);				//Cookie lasts for 7 days
 	            response.addCookie(userRight);
 				response.sendRedirect("/remarema/home");
 			} catch (UserNotFoundException e) {
