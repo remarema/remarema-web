@@ -65,17 +65,28 @@
 		<br /> <br />
 		<h3>Verfügbare Softwareversionen</h3>
 
-		<form method="post" action="/remarema/distribute">
-			<div class="row">
-				<div class="10u">
-					<input type="text" name="softwareID" value="${softwareNames}" />
-				</div>
-				<div class="2u">
-					<input type="submit" value="Wählen" />
+		<table class="default">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th></th>
+				</tr>
+			</thead>
 
-				</div>
-			</div>
-		</form>
+			<tbody>
+				<c:forEach items="${version}" var="item">
+					<tr>
+						<td>${item.softwareID}</td>
+						<td>${item.softwarePath}</td>
+						<td><a
+							href="/remarema/package_edit?id=${item.softwareID}">Info</a></td>
+
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+
 
 
 
