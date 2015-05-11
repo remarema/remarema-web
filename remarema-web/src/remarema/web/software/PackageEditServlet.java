@@ -55,6 +55,14 @@ public class PackageEditServlet extends HttpServlet {
 		}
 
 		Integer packageID = new Integer(request.getParameter("id"));
+		showListOfSoftwareversions(request, packageID);
+		
+		request.getRequestDispatcher("/package_edit.jsp").forward(request,
+				response);
+	}
+
+	private void showListOfSoftwareversions(HttpServletRequest request,
+			Integer packageID) {
 		PackageDetail packageDetail = new PackageDetail();
 		packageDetail.setSoftwarepackageID(packageID);
 		PackageDetail pkg = packageService
@@ -65,11 +73,7 @@ public class PackageEditServlet extends HttpServlet {
 		
 		
 		List<VersionDetail> version = softwareService.getVersionDetailForAllVersions(packageDetail);
-
 		request.setAttribute("version", version);
-		
-		request.getRequestDispatcher("/package_edit.jsp").forward(request,
-				response);
 	}
 
 	/**
@@ -105,12 +109,17 @@ public class PackageEditServlet extends HttpServlet {
 			request.setAttribute("id", pkg.getSoftwarepackageID());
 			request.setAttribute("name", pkg.getSoftwarepackageName());
 			request.setAttribute("message", "&Auml;nderungen erfolgreich!");
+			showListOfSoftwareversions(request, packageID);
+
+			
+			
 			request.getRequestDispatcher("/package_edit.jsp").forward(request,
 					response);
 		} else if (action.equals("delete")) {
 			PackageDetail packageDetail = new PackageDetail();
 			packageDetail.setSoftwarepackageID(packageID);
 			packageService.removePackage(packageDetail);
+			showListOfSoftwareversions(request, packageID);
 			response.sendRedirect("/remarema/packages?message=Löschen erfolgreich!");
 		} else if (action.equals("addSoftware")) {
 			
@@ -129,14 +138,14 @@ public class PackageEditServlet extends HttpServlet {
 			
 			request.setAttribute("id", packageID);
 			request.setAttribute("name", packageName);
+			showListOfSoftwareversions(request, packageID);
 			request.getRequestDispatcher("/package_edit.jsp").forward(request,
 					response);
 
 		} else {
+			showListOfSoftwareversions(request, packageID);
 			request.getRequestDispatcher("/package_edit.jsp").forward(request,
 					response);
 		}
-
 	}
-
 }

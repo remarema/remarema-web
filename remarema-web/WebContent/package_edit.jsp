@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file='template/menu.jsp'%>
 
 <section id="package_edit" class="two">
@@ -63,13 +64,14 @@
 
 
 		<br /> <br />
-		<h3>Verfügbare Softwareversionen</h3>
+		<h3>Verf&uuml;gbare Softwareversionen</h3>
 
 		<table class="default">
 			<thead>
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
+					<th>Software-Pfad</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -78,17 +80,13 @@
 				<c:forEach items="${version}" var="item">
 					<tr>
 						<td>${item.softwareID}</td>
+						<td>${item.softwareName}</td>
 						<td>${item.softwarePath}</td>
-						<td><a
-							href="/remarema/package_edit?id=${item.softwareID}">Info</a></td>
-
+						<td><a href="/remarema/software_edit?id=${item.softwareID}">Info</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-
-
-
 
 	</div>
 </section>
