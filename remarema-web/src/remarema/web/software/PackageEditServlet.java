@@ -95,9 +95,7 @@ public class PackageEditServlet extends HttpServlet {
 			UpdatePackage updatePackage = new UpdatePackage();
 			updatePackage.setSoftwarepackageID(packageID);
 			updatePackage.setSoftwarepackageName(packageName);
-
-			request.setAttribute("id", packageID);
-			request.setAttribute("name", packageName);
+			
 			packageService.updatePackage(updatePackage);
 
 			PackageDetail packageDetail = new PackageDetail();
@@ -110,15 +108,12 @@ public class PackageEditServlet extends HttpServlet {
 			request.setAttribute("message", "&Auml;nderungen erfolgreich!");
 			showListOfSoftwareversions(request, packageID);
 
-			
-			
 			request.getRequestDispatcher("/package_edit.jsp").forward(request,
 					response);
 		} else if (action.equals("delete")) {
 			PackageDetail packageDetail = new PackageDetail();
 			packageDetail.setSoftwarepackageID(packageID);
 			packageService.removePackage(packageDetail);
-			showListOfSoftwareversions(request, packageID);
 			response.sendRedirect("/remarema/packages?message=Löschen erfolgreich!");
 		} else if (action.equals("addSoftware")) {
 			
