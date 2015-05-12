@@ -1,7 +1,50 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file='template/menu.jsp'%>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="js/test.js"></script>
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+function updateSoftwareVersionList() {
+	$.ajax({
+		type: "GET",
+		url: "VersionsByPackageIdServlet?PackageId=" + $("#softwarePackageList").val(),
+		async: true,
+		error: function(Request, Message, ThrownError)
+		{
+			alert("JsonRequest.Error: " + Message + ", " + ThrownError);
+		},
+		success: function(Data)
+		{
+			var Success = false;
+			var JsonData = null;
+			try
+			{
+				JsonData = $.parseJSON(Data);
+				Success = true;
+			}
+			catch(e)
+			{
+				Success = false;
+			}
+			if (Success)
+			{
+				var VersionSelect = $("#softwareVersionList");
+				VersionSelect.empty();
+				VersionSelect.append($("<option>").attr("value", "").html("Bitte ausw&auml;hlen"));
+				for (var i = 0; i < JsonData.length; i++)
+				{
+					var a = $("<option>");
+					a.attr("value", JsonData[i].Id);
+					a.html(JsonData[i].Version);
+					a.appendTo(VersionSelect);
+				}
+			}
+			else
+			{
+				alert("JsonRequest.JsonParseError: " + Data);
+			}
+		}
+	});
+}
+</script>
 
 <!-- 
 	Display networks and clients
@@ -48,7 +91,7 @@
 		</form>
 
 		<header>
-			<h3>Derzeit hinzugef&uuml;gte Netzwerke:</h3>
+			<h4>Derzeit hinzugef&uuml;gte Netzwerke:</h4>
 		</header>
 
 		<table class="default">
@@ -66,14 +109,18 @@
 			</tbody>
 		</table>
 
-		<form action="">
-
+		<form action="/remarema/add_distribute" method="post">
+			<c:forEach items="${addedNetworks}" var="item">
+				<input type="hidden" name="addedNetworks[]" value="${item.networkID}" />
+			</c:forEach>
+			
 			<div class="row">
 				<div class="4u">
 					<input type="text" placeholder="Softwarepackage" disabled />
 				</div>
 				<div class="8u">
-					<select id="softwareVersionList" name="package" onchange="updateSoftwareVersionList()">
+					<select id="softwarePackageList" name="package"
+						onchange="updateSoftwareVersionList()">
 						<option value="">Bitte auswählen!</option> 
 						${options}
 					</select>
@@ -85,12 +132,11 @@
 				<div class="4u">
 					<input type="text" placeholder="Softwareversion" disabled />
 				</div>
-				<div class="6u">
-					<input type="text" name="version" placeholder="Softwareversion" />
-				</div>
-				<div class="1u">
-					<input type="button" name="softwareversion" value="auswählen!"
-						onClick="myFunction()" />
+				<div class="8u">
+					<select id="softwareVersionList" name="version">
+						<option value="">Bitte ausw&auml;hlen!</option>
+
+					</select>
 				</div>
 			</div>
 			<div class="row">
@@ -121,7 +167,8 @@
 		</form>
 	</div>
 
-	<p>Anstehende Softwareverteilungen:</p>
+	</br>
+	<h4>Anstehende Softwareverteilungen:</h4>
 </section>
 
 

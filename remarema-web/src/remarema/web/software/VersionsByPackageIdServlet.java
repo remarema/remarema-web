@@ -50,7 +50,7 @@ public class VersionsByPackageIdServlet extends HttpServlet {
 		ArrayList<String> temp = new ArrayList<>();
 		for (VersionDetail i : softwareversions)
 		{
-			temp.add("{Id: " + i.getSoftwareID() + ", Version: " + i.getSoftwareName().replace("\"", "\\\"") + "}");
+			temp.add("{\"Id\": " + i.getSoftwareID() + ",\"Version\": \"" + i.getSoftwareName().replace("\"", "\\\"") + "\"}");
 		}
 		response.getWriter().write("[" + join(",", temp) + "]");
 	}
