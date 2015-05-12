@@ -56,6 +56,8 @@
 				</div>
 			</div>
 		</form>
+		
+		${buttons}
 	</div>
 </section>
 
