@@ -10,12 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import remarema.api.CreateNode;
 import remarema.api.CreateSoftwareversion;
 import remarema.api.PackageDetail;
 import remarema.api.UpdatePackage;
 import remarema.api.VersionDetail;
-import remarema.services.network.IPNotValidException;
 import remarema.services.software.SoftwarepackageServiceBean;
 import remarema.services.software.SoftwareversionServiceBean;
 import remarema.web.util.CookieHelper;

@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.time.DateFormatUtils;
-
 import remarema.api.CreateDeployment;
 import remarema.api.NetworkDetail;
 import remarema.services.software.DeployServiceBean;

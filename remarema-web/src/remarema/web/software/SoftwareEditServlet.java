@@ -1,7 +1,6 @@
 package remarema.web.software;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -10,12 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import remarema.api.NodeDetail;
-import remarema.api.PackageDetail;
-import remarema.api.UpdateNode;
 import remarema.api.UpdateVersion;
 import remarema.api.VersionDetail;
-import remarema.services.network.IPNotValidException;
 import remarema.services.software.SoftwareversionServiceBean;
 import remarema.web.util.CookieHelper;
 
