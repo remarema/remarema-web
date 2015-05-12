@@ -1,6 +1,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file='template/menu.jsp'%>
 <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/jquery.datetimepicker.css"/>
+<script src="<%=request.getContextPath()%>/js/jquery.datetimepicker.js"></script>
+	
+	<!-- Datepicker Javascript -->
+
+		<script>
+		jQuery(function () {
+			jQuery('#datetimepicker').datetimepicker()
+		});
+		jQuery(function () {
+			jQuery('#datetimepicker02').datetimepicker()
+		});
+		</script> 
+	
 <script type="text/javascript">
 function updateSoftwareVersionList() {
 	$.ajax({

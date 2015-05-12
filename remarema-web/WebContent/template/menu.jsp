@@ -32,8 +32,7 @@
 		<script src="<%=request.getContextPath()%>/js/skel.min.js"></script>
 		<script src="<%=request.getContextPath()%>/js/skel-layers.min.js"></script>
 		<script src="<%=request.getContextPath()%>/js/init.js"></script>
-		<script src="<%=request.getContextPath()%>/js/jquery.datetimepicker.js"></script>
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/jquery.datetimepicker.css"/>
+
 		<noscript>
 			<link rel="stylesheet" href="<%=request.getContextPath()%>/css/skel.css" />
 			<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" />
@@ -41,27 +40,6 @@
 		</noscript>
 		<!--[if lte IE 9]><link rel="stylesheet" href="<%=request.getContextPath()%>/css/ie/v9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="<%=request.getContextPath()%>/css/ie/v8.css" /><![endif]-->
-		
-	<!-- Datepicker Javascript -->
-
-		<script>
-			/*window.onerror = function(errorMsg) {
-				$('#console').html($('#console').html()+'<br>'+errorMsg)
-			}*/
-			$('#datetimepicker').datetimepicker({
-			dayOfWeekStart : 1,
-			lang:'en',
-			startDate:	'<% out.print(utilitie.getDateTime()); %>'
-			});
-			$('#datetimepicker').datetimepicker({value:'<% out.print(utilitie.getDateTime()); %>',step:10});
-			
-			$('#datetimepicker02').datetimepicker({
-			dayOfWeekStart : 1,
-			lang:'en',
-			startDate:	'<% out.print(utilitie.getDateTime()); %>'
-			});
-			$('#datetimepicker02').datetimepicker({value:'<% out.print(utilitie.getDateTime()); %>',step:10});
-		</script> 
 	
 	</head>
 	<body>
