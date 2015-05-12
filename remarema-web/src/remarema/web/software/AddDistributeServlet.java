@@ -84,10 +84,9 @@ public class AddDistributeServlet extends HttpServlet {
 		
 		deployService.execute(deployment);
 		
-		request.setAttribute("message", "Die Verteilung wurde erfolgreich angelegt!");
-		request.getRequestDispatcher("/distribute.jsp").forward(request,
-				response);
 		
+		request.getRequestDispatcher("/distribute.jsp").forward(request,
+				response);	
 	}
 
 }

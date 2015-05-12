@@ -28,7 +28,7 @@ function updateSoftwareVersionList() {
 			{
 				var VersionSelect = $("#softwareVersionList");
 				VersionSelect.empty();
-				VersionSelect.append($("<option>").attr("value", "").html("Bitte ausw&auml;hlen"));
+				VersionSelect.append($("<option>").attr("value", "").html("Bitte auswählen!"));
 				for (var i = 0; i < JsonData.length; i++)
 				{
 					var a = $("<option>");
@@ -83,7 +83,7 @@ function updateSoftwareVersionList() {
 							<td>${item.networkID}</td>
 							<td>${item.networkName}</td>
 							<td><a
-								href="/remarema/distribute?id=${item.networkID}&action=add">Auswählen</a></td>
+								href="/remarema/distribute_edit?networkid=${item.networkID}&id=${id}&action=add">Auswählen</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -103,7 +103,7 @@ function updateSoftwareVersionList() {
 						<td>${item.networkID}</td>
 						<td>${item.networkName}</td>
 						<td><a
-							href="/remarema/distribute?id=${item.networkID}&action=delete">Entfernen</a></td>
+							href="/remarema/distribute_edit?networkid=${item.networkID}&id=${id}&action=delete">Entfernen</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -121,9 +121,10 @@ function updateSoftwareVersionList() {
 				<div class="8u">
 					<select id="softwarePackageList" name="package"
 						onchange="updateSoftwareVersionList()">
-						<option value="">Bitte auswählen!</option> 
+						<option value="${packageID}">${packageName}</option> 
 						${options}
 					</select>
+					
 				</div>
 
 
@@ -134,7 +135,7 @@ function updateSoftwareVersionList() {
 				</div>
 				<div class="8u">
 					<select id="softwareVersionList" name="version">
-						<option value="">Bitte ausw&auml;hlen!</option>
+						<option value= "${softwareID}">${software}</option>
 
 					</select>
 				</div>
@@ -144,7 +145,7 @@ function updateSoftwareVersionList() {
 					<input type="text" placeholder="Zeitpunkt der Verteilung" disabled />
 				</div>
 				<div class="4u">
-					<input type="text" name="distribution" value="${time}"
+					<input type="text" name="distribution" value="${deploy}"
 						id="datetimepicker" />
 				</div>
 			</div>
@@ -154,55 +155,28 @@ function updateSoftwareVersionList() {
 						disabled />
 				</div>
 				<div class="4u">
-					<input type="text" name="installation" value="${time}"
+					<input type="text" name="installation" value="${installation}"
 						id="datetimepicker02" />
 				</div>
 			</div>
 			<div class="row">
 				<div class="12u">
-					<input type="submit" name="Software" value="Software verteilen!" />
+					<input type="submit" name="Software" value="Update!" />
 				</div>
 			</div>
-
+		</form>
+		
+		<br />
+		
+		<form action="/remarema/distribute_edit?id=${id}" method="post">
+			<div class="row">
+				<div class="12u">
+					<input type="submit" name="L&ouml;schen" value="L&ouml;schen" />
+					<input type="hidden" name="action" value="delete" />
+				</div>
+			</div>
 		</form>
 	</div>
-
-	<br />
-	<br />
-	<h3>Anstehende Softwareverteilungen:</h3>
-	<br />
-	<table class="default">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Deploy-Time</th>
-					<th>Installation-Time</th>
-					<th>Softwareversion</th>
-					<th>Networks</th>
-					<th></th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<c:forEach items="${deployments}" var="item">
-					<tr>
-						<td>${item.deployID}</td>
-						<td>${item.deployDateTime}</td>
-						<td>${item.installationDateTime}</td>
-						<td>${item.versionName}</td>
-						<td>
-						
-						<c:forEach items="${item.networks}" var="item02">
-							<a href="/remarema/network_edit?id=${item02.networkID}">[${item02.networkName}]</a>
-						</c:forEach>
-						</td>
-						<td><a href="/remarema/distribute_edit?id=${item.deployID}">Info</a></td>
-						
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	
 </section>
 
 

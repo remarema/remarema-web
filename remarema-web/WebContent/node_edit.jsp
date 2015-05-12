@@ -34,7 +34,6 @@
 						</form>
 						
 						<br /> <br />
-							<h3>Client löschen</h3>
 							<form method="post" action="/remarema/node_edit?id=${id}">
 								<div class="row">
 									<div class="12u">
