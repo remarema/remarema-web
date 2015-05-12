@@ -45,6 +45,8 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		
+		${buttons}
 	</div>
 </section>
 

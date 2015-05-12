@@ -440,8 +440,8 @@
 		formatTime:	'H:i',
 		formatDate:	'Y/m/d',
 
-		startDate:	false, // new Date(), '1986/12/08', '-1970/01/05','-1970/01/05',
-		step: 60,
+		startDate:	new Date(), // new Date(), '1986/12/08', '-1970/01/05','-1970/01/05',
+		step: 10,
 		monthChangeSpinner: true,
 
 		closeOnDateSelect: false,
@@ -978,7 +978,7 @@
 				}
 
 				if (isNaN(options.dayOfWeekStart)) {
-					options.dayOfWeekStart = 0;
+					options.dayOfWeekStart = 1;
 				} else {
 					options.dayOfWeekStart = parseInt(options.dayOfWeekStart, 10) % 7;
 				}
