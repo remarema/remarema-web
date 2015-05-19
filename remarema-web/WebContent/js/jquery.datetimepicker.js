@@ -436,9 +436,9 @@
 		value: '',
 		lang: 'en',
 
-		format:	'Y/m/d H:i',
+		format:	'd.m.Y H:i',
 		formatTime:	'H:i',
-		formatDate:	'Y/m/d',
+		formatDate:	'd.m.Y',
 
 		startDate:	new Date(), // new Date(), '1986/12/08', '-1970/01/05','-1970/01/05',
 		step: 10,
