@@ -29,6 +29,8 @@
 			<header>
 				<center>
 					<h2>Herzlich Willkommen auf ReMaReMa!</h2>
+					<br />
+					<img src="images/dipl_logo_480.png" />
 				</center>
 			</header>
 

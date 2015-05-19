@@ -51,7 +51,7 @@
 
 					<!-- Logo -->
 						<div id="logo">
-							<span class="image avatar48"><img src="<%=request.getContextPath()%>/images/dipl_logo.png" alt="" /></span>
+							<span class="image avatar48"><img src="<%=request.getContextPath()%>/images/dipl_logo_48.png" alt="" /></span>
 							<h1 id="title">ReMaReMa</h1>
 							<p>Wartungsoberfläche</p>
 						</div>
