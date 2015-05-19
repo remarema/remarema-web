@@ -434,7 +434,7 @@
             }
 		},
 		value: '',
-		lang: 'en',
+		lang: 'de',
 
 		format:	'd.m.Y H:i',
 		formatTime:	'H:i',

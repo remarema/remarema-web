@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import remarema.api.DeployDetail;
 import remarema.api.NetworkDetail;
 import remarema.api.PackageDetail;
+import remarema.api.UpdateDeploy;
 import remarema.services.network.NetworkServiceBean;
 import remarema.services.software.DeployServiceBean;
 import remarema.services.software.SoftwarepackageServiceBean;
@@ -26,7 +27,8 @@ import remarema.web.util.CookieHelper;
 public class DistributeEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	public static List<NetworkDetail> netDetail = new ArrayList<>();
+	public static ArrayList<NetworkDetail> deployList = new ArrayList<>();
+	public static ArrayList<NetworkDetail> updateList = null;
 
 	@Inject
 	private DeployServiceBean deployService;
@@ -36,6 +38,7 @@ public class DistributeEditServlet extends HttpServlet {
 
 	@Inject
 	private NetworkServiceBean networkService;
+
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -57,7 +60,7 @@ public class DistributeEditServlet extends HttpServlet {
 		}
 
 		loadDeploymentAttributes(request);
-
+		
 		String action = request.getParameter("action");
 		if (action != null) {
 			
@@ -74,31 +77,36 @@ public class DistributeEditServlet extends HttpServlet {
 			deployDetail.setDeployID(deployID);
 			DeployDetail dd = deployService
 					.getDeployDetailForDeployID(deployDetail);
-
+			deployList = dd.getNetworks();
 			
-			netDetail = dd.getNetworks();
-			System.out.println(netDetail.toString());
 			
-			if (action.equals("delete")) {
-				for (int i = 0; i < netDetail.size(); i++) {
-					if (netDetail.get(i).getNetworkID()
-							.equals(nd.getNetworkID())) {
-						netDetail.remove(i);
-						System.out.println(netDetail.toString());
+			UpdateDeploy updateDeploy = new UpdateDeploy();
+			updateDeploy.setDeployID(deployID);
+			
+			if(updateList == null){
+				updateList = new ArrayList<NetworkDetail>();
+				for(NetworkDetail result : deployList){
+					updateList.add(result);
+				}
+			}
+			
+			if(action.equals("add")){
+				updateList.add(nd);
+				request.setAttribute("message", "Netzwerk erfolgreich hinzugefügt");
+			}
+			
+			else if (action.equals("delete")){
+				for(int i = 0; i < updateList.size(); i++){
+					if(updateList.get(i).getNetworkID().equals(nd.getNetworkID())){
+						updateList.remove(i);
 					}
 				}
-				request.setAttribute("message", "Das Netzwerk wurde entfernt!");
+				request.setAttribute("message", "Netzwerk wurde entfernt!");
 			}
-			else if (action.equals("add")) {
-
-				netDetail.add(nd);
-				System.out.println(netDetail.toString());
-				request.setAttribute("message",
-						"Netzwerk erfolgreich hinzugef&uuml;gt!");
-			}
-
-			dd.setNetworks(netDetail);
-			request.setAttribute("addedNetworks", dd.getNetworks());
+		
+						
+			updateDeploy.setNetworks(updateList);
+			request.setAttribute("addedNetworks", updateDeploy.getNetworks());
 		}
 
 		request.getRequestDispatcher("/distribute_edit.jsp").forward(request,
@@ -177,8 +185,8 @@ public class DistributeEditServlet extends HttpServlet {
 			deployService.removeDeploy(deployDetail);
 
 			response.sendRedirect("/remarema/distribute?message=Die Verteilung wurde gelöscht!");
-
-		} else {
+		}
+		else {
 			request.getRequestDispatcher("/distribute_edit.jsp").forward(
 					request, response);
 		}
