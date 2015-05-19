@@ -7,7 +7,10 @@
 						<div class="container">
 
 							<header>
-								<img src="<%=request.getContextPath()%>/images/dipl_logo.png" alt="" width="100%" />
+								<img src="<%=request.getContextPath()%>/images/dipl_logo_big.png" alt="" width="80%" />
+								<br />
+								<br />
+								&copy; Rebecca van Langelaan, Maik Riedlsperger, Regina Werlberger, Mario "Super Mario" Rodler
 							 </header>   
 							    
 						</div>
