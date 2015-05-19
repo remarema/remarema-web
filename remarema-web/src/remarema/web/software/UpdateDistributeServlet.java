@@ -56,18 +56,18 @@ public class UpdateDistributeServlet extends HttpServlet {
 		Date verteilungSoftware = null;
 		Date installationVerteilung = null;
 		
-//		try {
-//			verteilungSoftware = dateFormat.parse(verteilung);
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		try {
-//			installationVerteilung = dateFormat.parse(installation);
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			verteilungSoftware = dateFormat.parse(verteilung);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			installationVerteilung = dateFormat.parse(installation);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		ArrayList<NetworkDetail> networkList = new ArrayList<>();
 		for(String networks : addedNetworks){
@@ -80,8 +80,8 @@ public class UpdateDistributeServlet extends HttpServlet {
 		UpdateDeploy updateDeploy = new UpdateDeploy();
 		updateDeploy.setNetworks(networkList);
 		updateDeploy.setSoftwareversionID(softwareID);
-//		updateDeploy.setDeployDateTime(verteilungSoftware);
-//		updateDeploy.setInstallationDateTime(installationVerteilung);
+		updateDeploy.setDeployDateTime(verteilungSoftware);
+		updateDeploy.setInstallationDateTime(installationVerteilung);
 		
 		deployService.updateDeploy(updateDeploy);
 		

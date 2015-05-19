@@ -27,8 +27,8 @@ import remarema.web.util.CookieHelper;
 public class DistributeEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	public static ArrayList<NetworkDetail> deployList = new ArrayList<>();
-	public static ArrayList<NetworkDetail> updateList = null;
+	public ArrayList<NetworkDetail> deployList = new ArrayList<>();
+	public ArrayList<NetworkDetail> updateList = null;
 
 	@Inject
 	private DeployServiceBean deployService;
