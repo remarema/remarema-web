@@ -96,7 +96,7 @@ public class DistributeServlet extends HttpServlet {
 			showAddedNetworks(request, liste);
 		}
 
-		methodEnd(request, response);
+		generalImports(request, response);
 	}
 
 	
@@ -133,9 +133,19 @@ public class DistributeServlet extends HttpServlet {
 
 		showAddedNetworks(request, liste);
 
-		methodEnd(request, response);
+		generalImports(request, response);
 	}
 
+	
+	/**
+	 * Wird ein Netzwerk zur Verteilung hinzugefügt, wird auf der Weboberfläche 
+	 * eine Tabelle mit den hinzugefügten Netzwerken dargestellt. 
+	 * Die Methode zeigt nur die Spaltennamen!
+	 * 
+	 * @param request
+	 * @param liste Wurde ein Netzwerk zur Liste hinzugefügt wird das "attribute" gesetzt.
+	 * Ist die Liste leer, werden die Spaltennamen nicht ausgegeben. 
+	 */
 	private void showAddedNetworks(HttpServletRequest request,
 			ArrayList<NetworkDetail> liste) {
 		if (!liste.isEmpty()) {
@@ -144,9 +154,25 @@ public class DistributeServlet extends HttpServlet {
 			request.setAttribute("addedNetworksList", addedNetworksList);
 		}
 	}
-	private void methodEnd(HttpServletRequest request,
+	
+	/**
+	 * Diese Methode erhält eine Liste aller Softwarepackages. Diese werden ausgelesen und 
+	 * als Option auf der Weboberfläche angezeigt. Dadurch erhält der Benutzer eine Auswahl aller Packages. 
+	 * 
+	 * Des Weiteren lädt die Methode alle bevorstehenden Softwareverteilungen aus der Datenbank und zeigt diese
+	 * ebenfalls auf der Weboberfläche an. 
+	 * 
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	private void generalImports(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		//Ließt alle Softwarepackages ein und setzt das Attribute "option". 
+		//Somit kann auf der Weboberfläche ein Packages für die Verteilung ausgewählt werden.
 		List<PackageDetail> packageDetail = packageService.getPackageDetailForAllPackages();
 		
 		String options = "";
@@ -155,8 +181,9 @@ public class DistributeServlet extends HttpServlet {
 		}
 		request.setAttribute("options", options);
 		
-		List<DeployDetail> deployments = deployService.getDeployDetailForAllDeployments();
 		
+		//Zeigt bevorstehende Softwareverteilungen an
+		List<DeployDetail> deployments = deployService.getDeployDetailForAllDeployments();
 		request.setAttribute("deployments", deployments);
 		
 		Util util = new Util();

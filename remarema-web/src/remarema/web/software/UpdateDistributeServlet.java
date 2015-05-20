@@ -59,15 +59,16 @@ public class UpdateDistributeServlet extends HttpServlet {
 		try {
 			verteilungSoftware = dateFormat.parse(verteilung);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+			System.err.print("Der Verteilungszeitpunkt konnte nicht korrekt geparsed werden!");
 			e.printStackTrace();
 		}
 		try {
 			installationVerteilung = dateFormat.parse(installation);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+			System.err.print("Der Installationszeitpunkt konnte nicht korrekt geparsed werden!");
 			e.printStackTrace();
 		}
+		
 		
 		ArrayList<NetworkDetail> networkList = new ArrayList<>();
 		for(String networks : addedNetworks){
