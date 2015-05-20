@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import remarema.api.NetworkDetail;
-import remarema.api.NodeDetail;
+import remarema.api.network.NetworkDetail;
+import remarema.api.network.NodeDetail;
 import remarema.services.network.NodeServiceBean;
 import remarema.web.util.CookieHelper;
 

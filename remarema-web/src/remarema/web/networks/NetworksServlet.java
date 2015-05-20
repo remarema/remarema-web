@@ -9,9 +9,9 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-import remarema.api.CreateNetwork;
-import remarema.api.NetworkDetail;
-import remarema.api.NodeDetail;
+import remarema.api.network.CreateNetwork;
+import remarema.api.network.NetworkDetail;
+import remarema.api.network.NodeDetail;
 import remarema.services.network.NetworkServiceBean;
 import remarema.web.util.CookieHelper;
 

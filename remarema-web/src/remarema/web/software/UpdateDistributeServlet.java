@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import remarema.api.CreateDeployment;
-import remarema.api.NetworkDetail;
-import remarema.api.UpdateDeploy;
+import remarema.api.network.NetworkDetail;
+import remarema.api.software.CreateDeployment;
+import remarema.api.software.UpdateDeploy;
 import remarema.services.software.DeployServiceBean;
 
 /**

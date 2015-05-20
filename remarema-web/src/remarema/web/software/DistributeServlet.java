@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import remarema.api.CreateDeployment;
-import remarema.api.DeployDetail;
-import remarema.api.NetworkDetail;
-import remarema.api.PackageDetail;
+import remarema.api.network.NetworkDetail;
+import remarema.api.software.CreateDeployment;
+import remarema.api.software.DeployDetail;
+import remarema.api.software.PackageDetail;
 import remarema.services.network.NetworkServiceBean;
 import remarema.services.software.DeployServiceBean;
 import remarema.services.software.SoftwarepackageServiceBean;

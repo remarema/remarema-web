@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-import remarema.api.CreateNetwork;
+import remarema.api.network.CreateNetwork;
 import remarema.services.network.NetworkServiceBean;
 import remarema.web.util.CookieHelper;
 

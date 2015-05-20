@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import remarema.api.CreatePackage;
-import remarema.api.PackageDetail;
+import remarema.api.software.CreatePackage;
+import remarema.api.software.PackageDetail;
 import remarema.services.software.SoftwarepackageServiceBean;
 import remarema.web.util.CookieHelper;
 

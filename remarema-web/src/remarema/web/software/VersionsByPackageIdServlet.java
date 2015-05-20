@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import remarema.api.PackageDetail;
-import remarema.api.VersionDetail;
+import remarema.api.software.PackageDetail;
+import remarema.api.software.VersionDetail;
 import remarema.services.software.SoftwareversionServiceBean;
 
 /**
