@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -13,8 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import remarema.api.CreateDeployment;
-import remarema.api.NetworkDetail;
+import remarema.api.network.NetworkDetail;
+import remarema.api.software.CreateDeployment;
+import remarema.api.software.DeployDetail;
 import remarema.services.software.DeployServiceBean;
 /**
  * Servlet implementation class AddDistributeServlet
@@ -83,7 +85,6 @@ public class AddDistributeServlet extends HttpServlet {
 		
 		
 		deployService.execute(deployment);
-		
 		
 		request.getRequestDispatcher("/distribute.jsp").forward(request,
 				response);	

@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import remarema.api.UpdateVersion;
-import remarema.api.VersionDetail;
+import remarema.api.software.UpdateVersion;
+import remarema.api.software.VersionDetail;
 import remarema.services.software.SoftwareversionServiceBean;
 import remarema.web.util.CookieHelper;
 

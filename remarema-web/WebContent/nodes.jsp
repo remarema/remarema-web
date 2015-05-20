@@ -25,10 +25,10 @@
 		<table class="default">
 			<thead>
 				<tr>
+					<th>Id</th>
 					<th>Name</th>
 					<th>IP</th>
 					<th>Netzwerk-Name</th>
-					<th>Softwareversion</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -36,10 +36,10 @@
 			<tbody>
 				<c:forEach items="${nodes}" var="item">
 					<tr>
+						<td>${item.nodeID}</td>
 						<td>${item.nodeName}</td>
 						<td>${item.nodeIP}</td>
 						<td>${item.nodeNetworkName}</td>
-						<td>${item.softwareversion}</td>
 						<td><a href="/remarema/node_edit?id=${item.nodeID}">Info</a></td>
 					</tr>
 				</c:forEach>

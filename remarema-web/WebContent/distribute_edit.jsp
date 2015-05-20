@@ -123,7 +123,7 @@ function updateSoftwareVersionList() {
 			</tbody>
 		</table>
 
-		<form action="/remarema/update_distribute" method="post">
+		<form action="/remarema/update_distribute?id=${id}" method="post">
 			<c:forEach items="${addedNetworks}" var="item">
 				<input type="hidden" name="addedNetworks[]" value="${item.networkID}" />
 			</c:forEach>
@@ -186,7 +186,7 @@ function updateSoftwareVersionList() {
 			<div class="row">
 				<div class="12u">
 					<input type="submit" name="L&ouml;schen" value="L&ouml;schen" />
-					<input type="hidden" name="action" value="delete" />
+					<input type="hidden" name="delete" value="true" />
 				</div>
 			</div>
 		</form>

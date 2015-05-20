@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import remarema.api.NodeDetail;
-import remarema.api.UpdateNode;
+import remarema.api.network.NodeDetail;
+import remarema.api.network.UpdateNode;
 import remarema.services.network.IPNotValidException;
 import remarema.services.network.NodeServiceBean;
 import remarema.web.util.CookieHelper;

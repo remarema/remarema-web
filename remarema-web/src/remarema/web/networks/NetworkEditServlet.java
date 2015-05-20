@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import remarema.api.CreateNetwork;
-import remarema.api.CreateNode;
-import remarema.api.NetworkDetail;
-import remarema.api.NodeDetail;
-import remarema.api.UpdateNetwork;
-import remarema.api.UpdateNode;
+import remarema.api.network.CreateNetwork;
+import remarema.api.network.CreateNode;
+import remarema.api.network.NetworkDetail;
+import remarema.api.network.NodeDetail;
+import remarema.api.network.UpdateNetwork;
+import remarema.api.network.UpdateNode;
 import remarema.services.network.ChildNotEmptyException;
 import remarema.services.network.IPNotValidException;
 import remarema.services.network.NetworkServiceBean;
