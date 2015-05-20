@@ -29,6 +29,7 @@ public class DistributeEditServlet extends HttpServlet {
 	
 	public ArrayList<NetworkDetail> deployList = new ArrayList<>();
 	public ArrayList<NetworkDetail> updateList = null;
+	public DeployDetail dd = null;
 
 	@Inject
 	private DeployServiceBean deployService;
@@ -58,14 +59,21 @@ public class DistributeEditServlet extends HttpServlet {
 			request.getRequestDispatcher("/error.jsp").forward(request,
 					response);
 		}
-
+		
 		loadDeploymentAttributes(request);
+		if(updateList == null){
+			request.setAttribute("addedNetworks", dd.getNetworks());
+		}
+
+		
 		
 		String action = request.getParameter("action");
+		
 		if (action != null) {
 			
 			Integer networkID = new Integer(request.getParameter("networkid"));
 			Integer deployID = new Integer(request.getParameter("id"));
+			
 
 			NetworkDetail networkDetail = new NetworkDetail();
 			networkDetail.setNetworkID(networkID);
@@ -118,7 +126,7 @@ public class DistributeEditServlet extends HttpServlet {
 		int distributeID = Integer.parseInt(request.getParameter("id"));
 		DeployDetail deployDetail = new DeployDetail();
 		deployDetail.setDeployID(distributeID);
-		DeployDetail dd = deployService
+		dd = deployService
 				.getDeployDetailForDeployID(deployDetail);
 
 		request.setAttribute("id", dd.getDeployID());
@@ -159,12 +167,28 @@ public class DistributeEditServlet extends HttpServlet {
 			request.getRequestDispatcher("/error.jsp").forward(request,
 					response);
 		}
+		
 		loadDeploymentAttributes(request);
+		if(updateList == null){
+			request.setAttribute("addedNetworks", dd.getNetworks());
+		}
+		else{
+			request.setAttribute("addedNetworks", updateList);
+		}
 
 		Integer deployID = new Integer(request.getParameter("id"));
 		String action = request.getParameter("action");
 
-		String searchNetwork = request.getParameter("searchNetwork");
+		String delete = "false";
+		if(request.getParameter("delete") != null){
+			delete = request.getParameter("delete");
+		}
+		
+		String searchNetwork = "false";
+		if(request.getParameter("searchNetwork") != null){
+			searchNetwork = request.getParameter("searchNetwork");
+		}
+		
 		if (searchNetwork.equals("true")) {
 			String networkName = request.getParameter("s");
 
@@ -179,7 +203,8 @@ public class DistributeEditServlet extends HttpServlet {
 			request.setAttribute("search", search);
 			request.getRequestDispatcher("/distribute_edit.jsp").forward(
 					request, response);
-		} else if (action.equals("delete")) {
+		}
+		else if(delete.equals("true")) {
 			DeployDetail deployDetail = new DeployDetail();
 			deployDetail.setDeployID(deployID);
 			deployService.removeDeploy(deployDetail);
