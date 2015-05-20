@@ -74,7 +74,7 @@ public class AddDistributeServlet extends HttpServlet {
 			nd.setNetworkID(id);
 			networkList.add(nd);
 		}
-		
+				
 		CreateDeployment deployment = new CreateDeployment();
 		deployment.setNetworks(networkList);
 		deployment.setSoftwareversionID(softwareID);
