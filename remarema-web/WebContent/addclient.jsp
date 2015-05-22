@@ -12,7 +12,7 @@
 
 							
 							<p>Short description/guide</p>
-							<p>${message}</p>
+							<p><font color="#770000">${message}</font></p>
 						
 							
 							<form method="post" action="/remarema/addclient">

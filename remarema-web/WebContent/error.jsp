@@ -4,7 +4,7 @@
 <section id="error" class="two">
 	<div class="container">
 		<header>
-			Sie haben nicht genügend Rechte, diese Seite aufzurufen!
+			<font color="#770000">Sie haben nicht genügend Rechte, diese Seite aufzurufen!</font>
 		</header>
 	
 	</div>

@@ -8,7 +8,7 @@
 			<h2>Package bearbeiten</h2>
 		</header>
 
-		<p>${message}</p>
+		<p><font color="#770000">${message}</font></p>
 
 		<form method="post" action="/remarema/package_edit?id=${id}">
 			<div class="row">
@@ -23,70 +23,71 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="12u">
+				<div class="1u"></div>
+				<div class="5u">
 					<input type="submit" value="Package updaten!" /> <input
 						type="hidden" name="action" value="update" />
-				</div>
+						</form>
+				</div>		
+		
+			<div class="1u">
+				<form method="post" action="/remarema/package_edit?id=${id}">
+				<input type="submit" value="Package löschen!" /> <input type="hidden"
+					name="action" value="delete" />
+					</form>
 			</div>
-		</form>
-		<br />
-		<form method="post" action="/remarema/package_edit?id=${id}">
-			<div class="row">
-				<div class="12u">
-					<input type="submit" value="Löschen!" /> <input type="hidden"
-						name="action" value="delete" />
-				</div>
+			<div class="5u"></div>
+	</div>
+	
+
+	<br /> <br />
+	<h3>Software hinzufügen</h3>
+
+	<form method="post" action="/remarema/package_edit?id=${id}">
+		<div class="row">
+			<div class="12u">
+				<input type="text" name="softwareName" placeholder="Softwarename"
+					value="${softwareName}" />
 			</div>
-		</form>
-
-		<br /> <br />
-		<h3>Software hinzufügen</h3>
-
-		<form method="post" action="/remarema/package_edit?id=${id}">
-			<div class="row">
-				<div class="12u">
-					<input type="text" name="softwareName" placeholder="Softwarename"
-						value="${softwareName}" />
-				</div>
-				<div class="12u">
-					<input type="text" name="softwarePath" placeholder="Software Pfad"
-						value="${softwarePath}" />
-				</div>
+			<div class="12u">
+				<input type="text" name="softwarePath" placeholder="Software Pfad"
+					value="${softwarePath}" />
 			</div>
-			<div class="row">
-				<div class="12u">
-					<input type="submit" value="Neue Software hinzufügen!" /> <input
-						type="hidden" name="action" value="addSoftware" /> <input
-						type="hidden" name="name" value="${name}" />
-				</div>
+		</div>
+		<div class="row">
+			<div class="12u">
+				<input type="submit" value="Neue Software hinzufügen!" /> <input
+					type="hidden" name="action" value="addSoftware" /> <input
+					type="hidden" name="name" value="${name}" />
 			</div>
-		</form>
+		</div>
+	</form>
 
 
-		<br /> <br />
-		<h3>Verf&uuml;gbare Softwareversionen</h3>
+	<br /> <br />
+	<h3>Verf&uuml;gbare Softwareversionen</h3>
 
-		<table class="default">
-			<thead>
+	<table class="default">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Software-Pfad</th>
+				<th></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<c:forEach items="${version}" var="item">
 				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Software-Pfad</th>
-					<th></th>
+					<td>${item.softwareID}</td>
+					<td>${item.softwareName}</td>
+					<td>${item.softwarePath}</td>
+					<td><a href="/remarema/software_edit?id=${item.softwareID}">Info</a></td>
 				</tr>
-			</thead>
-
-			<tbody>
-				<c:forEach items="${version}" var="item">
-					<tr>
-						<td>${item.softwareID}</td>
-						<td>${item.softwareName}</td>
-						<td>${item.softwarePath}</td>
-						<td><a href="/remarema/software_edit?id=${item.softwareID}">Info</a></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+			</c:forEach>
+		</tbody>
+	</table>
 
 	</div>
 </section>

@@ -39,7 +39,9 @@ public class NetworksServlet extends HttpServlet {
 			request.setAttribute("root",
 					"<input type=\"submit\" value=\"Root-Netzwerk anlegen!\" />");
 		} else {
-			if (networks.size() > 100) {
+			int pagesize = 5;
+			
+			if (networks.size() > pagesize) {
 				int page = 0;
 				try {
 					page = Integer.parseInt(request.getParameter("page"));
@@ -47,8 +49,8 @@ public class NetworksServlet extends HttpServlet {
 					page = 0;
 				} finally {
 					int pageIncrement = page + 1;
-					if (pageIncrement > networks.size() / 100) {
-						pageIncrement = (int) Math.ceil(networks.size() / 100);
+					if (pageIncrement > networks.size() / pagesize) {
+						pageIncrement = (int) Math.ceil(networks.size() / pagesize);
 					}
 
 					int pageDecrement = page - 1;
@@ -58,27 +60,29 @@ public class NetworksServlet extends HttpServlet {
 					String buttons = ""
 							+ "<form method=\"get\" action=\"/remarema/networks\">"
 							+ "<div class=\"row\">"
-							+ "<div class=\"6u\">"
+							+ "<div class=\"3u\"></div>"
+							+ "<div class=\"3u\">"
 							+ "<input type=\"hidden\" name=\"page\" value=\""
 							+ pageDecrement
 							+ "\" />"
 							+ "<input type=\"submit\" value=\"<\" />"
 							+ "</div></form>"
 							+ "<form method=\"get\" action=\"/remarema/networks\">"
-							+ "<div class=\"6u\">"
+							+ "<div class=\"3u\">"
 							+ "<input type=\"hidden\" name=\"page\" value=\""
 							+ pageIncrement + "\" />"
 							+ "<input type=\"submit\" value=\">\" />"
+							+ "<div class=\"3u\"></div>"
 							+ "</div>" + "</div></form>";
 					request.setAttribute("buttons", buttons);
 
 					ArrayList<NetworkDetail> networkOutput = new ArrayList<>();					
-					int startpage = page * 100;
-					int endpage = startpage + 100;
+					int startpage = page * pagesize;
+					int endpage = startpage + pagesize;
 					
 					if(endpage > networks.size()){
 						int overflow = networks.size();
-						while(overflow > 100){ overflow -= 100; }
+						while(overflow > pagesize){ overflow -= pagesize; }
 						endpage = startpage + overflow;
 					}
 					for (int i = startpage; i < endpage; i++) {

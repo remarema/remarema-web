@@ -28,7 +28,7 @@
 
 			<header>
 				<center>
-					Login fehlgeschlagen!<br />
+					<font color="#770000">Login fehlgeschlagen!</font><br />
 					<a href="/remarema/">Zurück zum Login...</a>
 				</center>
 			</header>

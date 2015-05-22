@@ -39,7 +39,7 @@ public class PackagesServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		if (CookieHelper.checkCookie(request, 6)) {
+		if (CookieHelper.checkCookie(request, 7)) {
 			request.getRequestDispatcher("/error.jsp").forward(request,
 					response);
 		}
@@ -62,7 +62,7 @@ public class PackagesServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		if (CookieHelper.checkCookie(request, 6)) {
+		if (CookieHelper.checkCookie(request, 7)) {
 			request.getRequestDispatcher("/error.jsp").forward(request,
 					response);
 		}

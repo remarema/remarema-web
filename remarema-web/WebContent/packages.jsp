@@ -6,27 +6,25 @@
 		<header>
 			<h2>Softwarepackages</h2>
 		</header>
-		<p>${message}</p>
+		<p><font color="#770000">${message}</font></p>
 
-		<h3>Package hinzufügen</h3>
 
 		<form method="post" action="/remarema/packages">
 			<div class="row">
-				<div class="12u">
-					<input type="text" name="name" placeholder="Package Name" />
+				<div class="9u">
+					<input type="text" name="name" placeholder="Geben Sie den Namen für ein neues Package ein" />
 				</div>
-			</div>
-			<div class="row">
-				<div class="12u">
-					<input type="submit" value="Package anlegen!" /> <input
+				<div class="3u">
+					<input type="submit" style="padding: 0.15em 1.25em 0.15em 1.25em;" value="Package anlegen!" /> <input
 						type="hidden" name="action" value="insert" />
 				</div>
 			</div>
 		</form>
 
-		<br /> <br />
+		<br />
 
 
+	<h3>Bereits existierende Packages</h3>
 		<table class="default">
 			<thead>
 				<tr>
