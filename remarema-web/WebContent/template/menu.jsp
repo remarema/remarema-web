@@ -51,7 +51,7 @@
 
 					<!-- Logo -->
 						<div id="logo">
-							<span class="image avatar48"><a href="/remarema/home"><img src="<%=request.getContextPath()%>/images/dipl_logo_480.png" width="240px" alt="" /></a></span>
+							<span class="image avatar48"><a href="/remarema/home"><img src="<%=request.getContextPath()%>/images/bw_small2.png" width="240px" alt="" /></a></span>
 							<h1 id="title"></h1>
 						</div>
 
