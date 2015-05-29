@@ -35,8 +35,10 @@ public class NodesServlet extends HttpServlet {
 		}
 
 		List<NodeDetail> nodes = nodeService.getNodeDetailForAllNodes();
+		
+		int pagesize = 5;
 
-		if (nodes.size() > 100) {
+		if (nodes.size() > pagesize) {
 			int page = 0;
 			try {
 				page = Integer.parseInt(request.getParameter("page"));
@@ -44,8 +46,8 @@ public class NodesServlet extends HttpServlet {
 				page = 0;
 			} finally {
 				int pageIncrement = page + 1;
-				if (pageIncrement > nodes.size() / 100) {
-					pageIncrement = (int) Math.ceil(nodes.size() / 100);
+				if (pageIncrement > nodes.size() / pagesize) {
+					pageIncrement = (int) Math.ceil(nodes.size() / pagesize);
 				}
 
 				int pageDecrement = page - 1;
@@ -54,7 +56,9 @@ public class NodesServlet extends HttpServlet {
 				}
 				String buttons = ""
 						+ "<form method=\"get\" action=\"/remarema/nodes\">"
-						+ "<div class=\"row\">" + "<div class=\"6u\">"
+						+ "<div class=\"row\">"
+						+ "<div class=\"3u\"></div>"
+						+ "<div class=\"3u\">"
 						+ "<input type=\"hidden\" name=\"page\" value=\""
 						+ pageDecrement + "\" />"
 						+ "<input type=\"submit\" value=\"<\" />"
@@ -64,16 +68,17 @@ public class NodesServlet extends HttpServlet {
 						+ "<input type=\"hidden\" name=\"page\" value=\""
 						+ pageIncrement + "\" />"
 						+ "<input type=\"submit\" value=\">\" />" + "</div>"
+						+ "<div class=\"3u\"></div>"
 						+ "</div></form>";
 				request.setAttribute("buttons", buttons);
 
 				ArrayList<NodeDetail> nodeOutput = new ArrayList<>();
-				int startpage = page * 100;
-				int endpage = startpage + 100;
+				int startpage = page * pagesize;
+				int endpage = startpage + pagesize;
 
 				if (endpage > nodes.size()) {
 					int overflow = nodes.size();
-					while (overflow > 100) {
+					while (overflow > pagesize) {
 						overflow -= 100;
 					}
 					endpage = startpage + overflow;

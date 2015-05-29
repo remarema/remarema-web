@@ -51,9 +51,8 @@
 
 					<!-- Logo -->
 						<div id="logo">
-							<span class="image avatar48"><img src="<%=request.getContextPath()%>/images/dipl_logo_48.png" alt="" /></span>
-							<h1 id="title">ReMaReMa</h1>
-							<p>Wartungsoberfläche</p>
+							<span class="image avatar48"><a href="/remarema/home"><img src="<%=request.getContextPath()%>/images/bw_small2.png" width="240px" alt="" /></a></span>
+							<h1 id="title"></h1>
 						</div>
 
 					<!-- Nav -->
@@ -64,8 +63,7 @@
 								<li id="<%=utilitie.activeMenu(currentPage, "nodes.jsp")%>"><a href="/remarema/nodes" id="nodes"><span class="icon fa-user">Clientverwaltung</span></a></li>
 								<li id="<%=utilitie.activeMenu(currentPage, "packages.jsp")%>"><a href="/remarema/packages" id="packages"><span class="icon fa-upload">Softwareverwaltung</span></a></li>
 								<li id="<%=utilitie.activeMenu(currentPage, "distribute.jsp")%>"><a href="/remarema/distribute" id="distribute"><span class="icon fa-share-square">Software verteilen</span></a></li>
-								</br>
-								<center><form action="/remarema/index" method="post"><input type="submit" value="Logout"><input type="hidden" name="action" value="logout"></form></center>
+								<li id="<%=utilitie.activeMenu(currentPage, "index.jsp")%>"><a href="/remarema/index?action=logout" id="logout"><span class="icon fa-sign-out">Logout</span></a></li>
 							</ul>
 						</nav>
 						

@@ -6,7 +6,7 @@
 		<header>
 			<h2>Netzwerke</h2>
 		</header>
-		<p>${message}</p>
+		<p><font color="#770000">${message}</font></p>
 		
 <form method = "post">
 		<div class="row">

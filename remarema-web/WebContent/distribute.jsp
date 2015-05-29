@@ -71,7 +71,7 @@ function updateSoftwareVersionList() {
 		</header>
 
 
-		<p>${message}</p>
+		<p><font color="#770000">${message}</font></p>
 
 		<form method="post">
 			<div class="row">
@@ -105,7 +105,7 @@ function updateSoftwareVersionList() {
 		</form>
 
 		<header>
-			<h4>Derzeit hinzugef&uuml;gte Netzwerke:</h4>
+			<h3>Derzeit hinzugef&uuml;gte Netzwerke:</h3>
 		</header>
 
 		<table class="default">

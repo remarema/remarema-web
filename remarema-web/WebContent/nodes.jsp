@@ -6,7 +6,7 @@
 		<header>
 			<h2>Clients</h2>
 		</header>
-		<p>${message}</p>
+		<p><font color="#770000">${message}</font></p>
 
 		<form method= "post">
 			<div class="row">
@@ -25,7 +25,7 @@
 		<table class="default">
 			<thead>
 				<tr>
-					<th>Id</th>
+					<th>ID</th>
 					<th>Name</th>
 					<th>IP</th>
 					<th>Netzwerk-Name</th>

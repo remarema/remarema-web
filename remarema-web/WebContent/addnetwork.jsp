@@ -13,12 +13,12 @@
 
 		<c:if test="${not form.valid}">
 			<c:forEach items="${form.messages}" var="msg">
-				<label for="${msg.id}" class="error">${msg.message}</label>
+				<label for="${msg.id}" class="error"><font color="#770000">${msg.message}</font></label>
 			</c:forEach>
 		</c:if>
 
 		<p>Short description/guide</p>
-		<p>${message}</p>
+		<p><font color="#770000">${message}</font></p>
 
 		<form method="post" action="/remarema/addnetwork">
 			<div class="row">

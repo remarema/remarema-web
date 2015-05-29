@@ -28,13 +28,13 @@
 
 			<header>
 				<center>
-					<h2>Herzlich Willkommen auf ReMaReMa!</h2>
-					<br />
 					<img src="images/dipl_logo_480.png" />
+					<br />
+					Bitte loggen Sie sich ein, um die Wartungsoberfl&auml;che nutzen zu können!
 				</center>
 			</header>
 
-			<p><center>${message}</center>
+			<p><center><font color="#770000">${message}</font></center>
 			</header>
 			</p>
 

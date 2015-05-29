@@ -37,6 +37,14 @@ public class IndexServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");
+		
+		if(action.equals("logout")){
+			CookieHelper.deleteCookie(request, response);
+			request.setAttribute("message", "Logout erfolgreich!");
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		}
+		
 		request.getRequestDispatcher("/index.jsp").forward(request, response);
 		
 	}
@@ -67,11 +75,7 @@ public class IndexServlet extends HttpServlet {
 				request.getRequestDispatcher("/loginerror.jsp").forward(request, response);
 			}
 		}
-		else if(action.equals("logout")){
-			CookieHelper.deleteCookie(request, response);
-			request.setAttribute("message", "Logout erfolgreich!");
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
-		}
+		
 
 		
 	}
