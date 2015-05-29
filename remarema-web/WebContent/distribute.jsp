@@ -92,12 +92,12 @@ function updateSoftwareVersionList() {
 			<table class="default">
 				${search}
 				<tbody>
-					<c:forEach items="${networks}" var="item">
+					<c:forEach items="${networks}" var="nw_item">
 						<tr>
-							<td>${item.networkID}</td>
-							<td>${item.networkName}</td>
+							<td>${nw_item.networkID}</td>
+							<td>${nw_item.networkName}</td>
 							<td><a
-								href="/remarema/distribute?id=${item.networkID}&action=add">Auswählen</a></td>
+								href="/remarema/distribute?id=${nw_item.networkID}&action=add">Auswählen</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
