@@ -1,6 +1,8 @@
 package remarema.web.networks;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -64,6 +66,10 @@ public class NetworkEditServlet extends HttpServlet {
 		request.setAttribute("name", nwd.getNetworkName());
 		request.setAttribute("parentID", nwd.getNetworkParentID());
 		request.setAttribute("parentName", nwd.getNetworkParentName());
+		
+		List<NodeDetail> nodeList = nodeService.getNodeDetailForNetworkID(networkDetail);
+		
+		request.setAttribute("nodeList", nodeList);
 
 		request.getRequestDispatcher("/network_edit.jsp").forward(request,
 				response);
@@ -85,6 +91,13 @@ public class NetworkEditServlet extends HttpServlet {
 		String parentID = request.getParameter("parentID");
 		String parentName = request.getParameter("parentName");
 		String action = request.getParameter("action");
+		
+		NetworkDetail networkDetail02 = new NetworkDetail();
+		networkDetail02.setNetworkID(id);
+		
+		List<NodeDetail> nodeList = nodeService.getNodeDetailForNetworkID(networkDetail02);
+		
+		request.setAttribute("nodeList", nodeList);
 
 		if (action.equals("update")) {
 			UpdateNetwork updateNetwork = new UpdateNetwork();

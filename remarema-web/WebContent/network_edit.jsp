@@ -98,17 +98,27 @@
 	<br /> <br />
 	<h3>Clients im Netzwerk</h3>
 
-	<form method="post" action="">
-		<div class="row">
-			<div class="10u">
-				<input type="text" name="clientID" value="${nodeNames}" />
-			</div>
-			<div class="2u">
-				<a href="/remarema/node_edit?id=${nodeIDs}"><input id="inputbtn"
-					type="text" value="View" disabled /></a>
-			</div>
-		</div>
-	</form>
+	<table class="default">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>IP</th>
+					<th></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<c:forEach items="${nodeList}" var="item">
+					<tr>
+						<td>${item.nodeID}</td>
+						<td>${item.nodeName}</td>
+						<td>${item.nodeIP}</td>
+						<td><a href="/remarema/node_edit?id=${item.nodeID}">Info</a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 
 	</div>
 </section>
