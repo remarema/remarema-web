@@ -1,70 +1,203 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.1.8" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
-  associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="remarema.web.main.Main" project="remarema-web" 
-    file="/remarema-web/src/remarema/web/main/Main.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="152" y="266"/>    
+<class-diagram version="1.1.8" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="remarema.web.networks.AddNetworkServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/networks/AddNetworkServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="288" x="-115" y="-56"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="remarema.web.util.Util" project="remarema-web" 
+  <class id="2" language="java" name="remarema.web.networks.NetworkEditServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/networks/NetworkEditServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="30" y="206"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="remarema.web.networks.NetworksServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/networks/NetworksServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="30" y="396"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="remarema.web.networks.NodeEditServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/networks/NodeEditServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="34" y="582"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="remarema.web.networks.NodesServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/networks/NodesServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="32" y="764"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="remarema.web.servlets.AbstractForm" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/servlets/AbstractForm.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="302" y="266"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="remarema.web.servlets.BeanValidation" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/servlets/BeanValidation.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="433" y="45"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="remarema.web.servlets.ErrorServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/servlets/ErrorServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="330" y="454"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="remarema.web.servlets.HomeServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/servlets/HomeServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="330" y="620"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="remarema.web.servlets.IndexServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/servlets/IndexServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="330" y="792"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="remarema.web.util.CookieHelper" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/util/CookieHelper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="578" y="218"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="remarema.web.util.Util" project="remarema-web" 
     file="/remarema-web/src/remarema/web/util/Util.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="331" y="150"/>    
+    <position height="-1" width="-1" x="572" y="354"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="remarema.web.display.Deploy" project="remarema-web" 
-    file="/remarema-web/src/remarema/web/display/Deploy.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="700" y="132"/>    
+  <class id="13" language="java" name="remarema.web.software.AddDistributeServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/software/AddDistributeServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="628" y="518"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="remarema.web.display.Node" project="remarema-web" 
-    file="/remarema-web/src/remarema/web/display/Node.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="581" y="266"/>    
+  <class id="14" language="java" name="remarema.web.software.AddSoftwareServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/software/AddSoftwareServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="630" y="670"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="remarema.web.display.Setting" project="remarema-web" 
-    file="/remarema-web/src/remarema/web/display/Setting.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="700" y="234"/>    
+  <class id="15" language="java" name="remarema.web.software.DistributeEditServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/software/DistributeEditServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="920" y="140"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="remarema.web.display.Version" project="remarema-web" 
-    file="/remarema-web/src/remarema/web/display/Version.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="582" y="150"/>    
+  <class id="16" language="java" name="remarema.web.software.DistributeServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/software/DistributeServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="978" y="408"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="7" language="java" name="remarema.web.display" project="remarema-web" 
-    file="/remarema-web/src/remarema/web/display" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="647" y="54"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <package id="8" language="java" name="remarema.web.main" project="remarema-web" 
-    file="/remarema-web/src/remarema/web/main" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="272" y="52"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
+  <class id="17" language="java" name="remarema.web.software.PackageEditServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/software/PackageEditServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="652" y="840"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="remarema.web.software.PackagesServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/software/PackagesServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="932" y="626"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="remarema.web.software.SoftwareEditServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/software/SoftwareEditServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="984" y="804"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="remarema.web.software.UpdateDistributeServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/software/UpdateDistributeServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1226" y="86"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="remarema.web.software.VersionsByPackageIdServlet" project="remarema-web" 
+    file="/remarema-web/src/remarema/web/software/VersionsByPackageIdServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1320" y="260"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="22">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="23" name="INSTANCE"/>      
+      <multiplicity id="24" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

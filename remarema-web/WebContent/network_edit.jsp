@@ -1,4 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file='template/menu.jsp'%>
+
 
 <section id="netzwerk_edit" class="two">
 	<div class="container">

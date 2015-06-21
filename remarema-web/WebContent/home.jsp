@@ -11,21 +11,7 @@
 			<img src="<%=request.getContextPath()%>/images/dipl_logo_big.png"
 				alt="" width="80%" /> <br /> <br />
 		</header>
-
-		<table class="default">
-			<thead>
-				<tr>
-					<th>Herzlich Willkommen auf der ReMaReMa Wartungsoberfläche!</th>
-				</tr>
-			</thead>
-			<tbody>
-					<tr>
-						<td>Dinge</td>
-					</tr>
-			</tbody>
-		</table>
 		
-
 		<table class="default">
 			<thead>
 				<tr>
