@@ -170,6 +170,7 @@
 		article
 		{
 			margin-bottom: 3em;
+			font-size: 12pt;
 		}
 		
 			section > :last-child,
@@ -631,6 +632,7 @@
 	
 	#nav
 	{
+		font-size: 16pt;
 	}
 	
 		#nav ul
