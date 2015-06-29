@@ -16,10 +16,13 @@ import remarema.api.software.UpdatePackage;
 import remarema.api.software.VersionDetail;
 import remarema.services.software.SoftwarepackageServiceBean;
 import remarema.services.software.SoftwareversionServiceBean;
+import remarema.web.networks.NetworkEditServlet;
 import remarema.web.util.CookieHelper;
 
 /**
- * Servlet implementation class PackageEditServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zum Editieren von Softwarepaketen dar.
+ * 
+ * @see NetworkEditServlet
  */
 @WebServlet("/package_edit")
 public class PackageEditServlet extends HttpServlet {
@@ -42,8 +45,8 @@ public class PackageEditServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see NetworkEditServlet#doGet(HttpServletRequest, HttpServletResponse)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -76,8 +79,8 @@ public class PackageEditServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see NetworkEditServlet#doPost(HttpServletRequest, HttpServletResponse)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

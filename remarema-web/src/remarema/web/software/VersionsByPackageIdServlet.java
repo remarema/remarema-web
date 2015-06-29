@@ -17,7 +17,10 @@ import remarema.api.software.VersionDetail;
 import remarema.services.software.SoftwareversionServiceBean;
 
 /**
- * Servlet implementation class VersionsByPackageIdServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zur Ermittlung
+ * eines Softwarepaketes mittels dessen ID dar. Dies wird
+ * benötigt, wenn mittels eines AJAX Aufrufes, das entsprechende
+ * Paket benötigt wird.
  */
 @WebServlet("/VersionsByPackageIdServlet")
 public class VersionsByPackageIdServlet extends HttpServlet {
@@ -36,6 +39,11 @@ public class VersionsByPackageIdServlet extends HttpServlet {
     }
 
 	/**
+	 * Diese Methode generiert mittels der ID eines Packages einen JSON-String,
+	 * welcher alle Softwareversionen des Paketes beinhält. Dieser kann danach
+	 * in der entsprechenden <code>.jsp</code> Datei mittels <code>AJAX</code>
+	 * und <code>Javascript</code> verwertet werden.
+	 * 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

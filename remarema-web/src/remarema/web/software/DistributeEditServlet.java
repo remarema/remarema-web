@@ -18,10 +18,13 @@ import remarema.api.software.UpdateDeploy;
 import remarema.services.network.NetworkServiceBean;
 import remarema.services.software.DeployServiceBean;
 import remarema.services.software.SoftwarepackageServiceBean;
+import remarema.web.networks.NetworkEditServlet;
 import remarema.web.util.CookieHelper;
 
 /**
- * Servlet implementation class NodeStatusServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zum Editieren von Softwareverteilungen dar.
+ * 
+ * @see NetworkEditServlet
  */
 @WebServlet("/distribute_edit")
 public class DistributeEditServlet extends HttpServlet {
@@ -50,8 +53,8 @@ public class DistributeEditServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see NetworkEditServlet#doGet(HttpServletRequest, HttpServletResponse)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -158,8 +161,8 @@ public class DistributeEditServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see NetworkEditServlet#doPost(HttpServletRequest, HttpServletResponse)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

@@ -18,8 +18,12 @@ import remarema.api.network.NetworkDetail;
 import remarema.api.software.CreateDeployment;
 import remarema.api.software.DeployDetail;
 import remarema.services.software.DeployServiceBean;
+import remarema.web.networks.NetworkEditServlet;
+import remarema.web.networks.NetworksServlet;
 /**
- * Servlet implementation class AddDistributeServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zum Hinzufügen von Softwareverteilungen dar.
+ * 
+ * @see NetworksServlet
  */
 @WebServlet(name = "add_distribute", urlPatterns = { "/add_distribute" })
 public class AddDistributeServlet extends HttpServlet {
@@ -37,6 +41,7 @@ public class AddDistributeServlet extends HttpServlet {
     }
 
 	/**
+	 * @see AddNetworkServlet#doGet(HttpServletRequest, HttpServletResponse)
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -44,6 +49,7 @@ public class AddDistributeServlet extends HttpServlet {
 	}
 
 	/**
+	 * @see AddNetworkServlet#doPost(HttpServletRequest, HttpServletResponse)
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

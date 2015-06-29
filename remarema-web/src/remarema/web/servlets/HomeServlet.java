@@ -18,7 +18,10 @@ import remarema.services.network.NodeServiceBean;
 import remarema.web.util.CookieHelper;
 
 /**
- * Servlet implementation class IndexServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zur Anzeige einer Homeseite dar.
+ * Diese wird dargestellt, nachdem sich ein Nutzer eingeloggt hat. Sie bietet
+ * eine Übersicht über seine/ihre vorhandenen Rechte und zeigt, wie viele
+ * Netzwerke/Clients derzeit existieren.
  */
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
@@ -40,6 +43,15 @@ public class HomeServlet extends HttpServlet {
     }
 
 	/**
+	 * Hier werden die vorhandenen Netzwerke/Clients mittels des <code>NetworkServiceBean</code>
+	 * / <code>NodeServiceBean</code> ausgelesen, um ihre derzeitige Anzahl zu bestimmen.
+	 * 
+	 * Weiters wird mit Hilfe des <code>CookieHelpers</code> überprüft, welche Rechte
+	 * der entsprechende User besitzt. 
+	 * 
+	 * Sowohl Rechte, als auch die jeweiligen Anzahlen, werden als Parameter gesetzt
+	 * und dem User dargestellt.
+	 * 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

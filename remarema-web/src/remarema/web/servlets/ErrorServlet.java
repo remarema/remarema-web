@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class IndexServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zur Anzeige einer Fehlerseite dar.
+ * Diese wird dargestellt, wenn ein Nutzer nicht genügend Rechte besitzt, eine
+ * Seite zu sehen.
  */
 @WebServlet("/error")
 public class ErrorServlet extends HttpServlet {
@@ -24,6 +26,9 @@ public class ErrorServlet extends HttpServlet {
     }
 
 	/**
+	 * Wird dieses Servlet aufgerufen, wird die Fehlerseite <code>error.jsp</code>
+	 * angezeigt.
+	 * 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,6 +36,7 @@ public class ErrorServlet extends HttpServlet {
 	}
 
 	/**
+	 * @see ErrorServlet#doGet(HttpServletRequest, HttpServletResponse)
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -24,7 +24,7 @@ import remarema.services.network.NodeServiceBean;
 import remarema.web.util.CookieHelper;
 
 /**
- * Servlet implementation class NetworkStatusServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zum Editieren von Netzwerken dar.
  */
 @WebServlet("/network_edit")
 public class NetworkEditServlet extends HttpServlet {
@@ -45,6 +45,14 @@ public class NetworkEditServlet extends HttpServlet {
 	}
 
 	/**
+	 * Diese Methode dient zur Anzeige der Informationen eines bestimmten
+	 * Netzwerkes.
+	 * 
+	 * Mit Hilfe der ID wird ein <code>NetworkDetail</code> Objekt generiert,
+	 * mit welchem die Daten des Netzwerkes, in etwa Name oder Parent,
+	 * ausgelesen werden können. Diese werden als Attribute gesetzt, um auf
+	 * der Weboberfläche angezeigt werden zu können.
+	 * 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -76,6 +84,20 @@ public class NetworkEditServlet extends HttpServlet {
 	}
 
 	/**
+	 * Um Änderungen an einem Netzwerk durchführen zu können, wird dessen ID
+	 * benötigt. Diese wird mittels eines POST-Parameters übergeben.
+	 * 
+	 * Aus den aktualisierten Netzwerkinformationen, in etwa ein neuer Name
+	 * oder ein neues Parent, wird ein <code>NetworkDetail</code> Objekt generiert.
+	 * Nun wird die jeweilige <code>action</code> benötigt, welche angibt,
+	 * ob die Informationen des Netzwerkes aktualisiert,
+	 * das Netzwerk gelöscht oder ob ein neues Kind-Netzwerk bzw.
+	 * eine neuer Client hinzugefügt werden soll.
+	 * 
+	 * Nun werden je nach <code>action</code> die entsprechenden Methoden
+	 * des <code>NetworkServiceBean</code>  oder des <code>NodeServiceBean</code> aufgerufen und
+	 * somit durchgeführt.
+	 * 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */

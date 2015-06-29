@@ -16,7 +16,9 @@ import remarema.services.network.NodeServiceBean;
 import remarema.web.util.CookieHelper;
 
 /**
- * Servlet implementation class NodeStatusServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zum Editieren von Clients dar.
+ * 
+ * @see NetworkEditServlet
  */
 @WebServlet("/node_edit")
 public class NodeEditServlet extends HttpServlet {
@@ -34,6 +36,7 @@ public class NodeEditServlet extends HttpServlet {
     }
 
 	/**
+	 * @see NetworkEditServlet#doGet(HttpServletRequest, HttpServletResponse)
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -56,6 +59,7 @@ public class NodeEditServlet extends HttpServlet {
 	}
 
 	/**
+	 * @see NetworkEditServlet#doPost(HttpServletRequest, HttpServletResponse)
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

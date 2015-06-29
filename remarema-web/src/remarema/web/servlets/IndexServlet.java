@@ -16,7 +16,9 @@ import remarema.services.user.UserServiceBean;
 import remarema.web.util.CookieHelper;
 
 /**
- * Servlet implementation class IndexServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zur Anzeige einer Indexseite dar.
+ * Diese wird dargestellt, wenn die Webseite betreten wird. Die Indexseite bietet
+ * dem Nutzer die Möglichkeit, sich einzuloggen.
  */
 @WebServlet("/index")
 public class IndexServlet extends HttpServlet {
@@ -34,6 +36,10 @@ public class IndexServlet extends HttpServlet {
     }
 
 	/**
+	 * Über die <code>doGet()</code> Methode wird das Ausloggen des Nutzers realisiert.
+	 * Hierbei werden mittels des <code>CookieHelpers</code> die zum Nutzer gehörenden 
+	 * Cookies gelöscht und ihm die Möglichkeit geboten, sich erneut einzuloggen.
+	 * 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,6 +56,14 @@ public class IndexServlet extends HttpServlet {
 	}
 
 	/**
+	 * Die <code>doPost()</code> Methode regelt das Einloggen eines Nutzers.
+	 * Hierbei wird ein <code>UserDetail</code> Objekt erzeugt, welches
+	 * überprüft, ob die eingegebenen log-in Daten korrekt sind. Sollte dies
+	 * nicht der Fall sein, wird der Nutzer auf die <code>loginerror.jsp</code>
+	 * Seite weitergeleitet, welche ihm eine Fehlermeldung anzeigt.
+	 * Bei der korrekten Eingabe der Daten wird über den <code>CookieHelper</code>
+	 * ein neues <code>Cookie</code> erzeugt, damit der User eingeloggt bleibt.
+	 * 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

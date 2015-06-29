@@ -12,7 +12,7 @@ import remarema.services.network.NetworkServiceBean;
 import remarema.web.util.CookieHelper;
 
 /**
- * Servlet implementation class AddNetworkServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zum Hinzufügen von Netzwerken dar.
  */
 @WebServlet("/addnetwork")
 public class AddNetworkServlet extends HttpServlet {
@@ -31,6 +31,14 @@ public class AddNetworkServlet extends HttpServlet {
 	}
 
 	/**
+	 * Nach einem erfolgreichen POST-Aufruf, wird aus dem mitgegebenen
+	 * Namen ein neues <code>CreateNetwork</code> Objekt generiert,
+	 * welches dazu dient, der Datenbank ein Netzwerk hinzuzufügen.
+	 * 
+	 * Wurde das Netzwerk erfolgreich hinzugefügt, wird zur Netzwerkübersicht
+	 * weitergeleitet. Weiters wird durch eine Nachricht dargestellt, dass
+	 * das Netzwerk erfolgreich angelegt wurde.
+	 * 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */

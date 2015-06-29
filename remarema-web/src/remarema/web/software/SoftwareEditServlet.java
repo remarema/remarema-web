@@ -12,10 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import remarema.api.software.UpdateVersion;
 import remarema.api.software.VersionDetail;
 import remarema.services.software.SoftwareversionServiceBean;
+import remarema.web.networks.NetworkEditServlet;
 import remarema.web.util.CookieHelper;
 
 /**
- * Servlet implementation class SoftwareEditServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zum Editieren von Softwarversionen dar.
+ * 
+ * @see NetworkEditServlet
  */
 @WebServlet(name = "software_edit", urlPatterns = { "/software_edit" })
 public class SoftwareEditServlet extends HttpServlet {
@@ -33,8 +36,8 @@ public class SoftwareEditServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see NetworkEditServlet#doGet(HttpServletRequest, HttpServletResponse)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -63,8 +66,8 @@ public class SoftwareEditServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see NetworkEditServlet#doPost(HttpServletRequest, HttpServletResponse)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

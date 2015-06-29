@@ -5,17 +5,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Utility Class (for function like Date/Time...)
- * 
- * @author Maik Riedlsperger
- * @version 0.012
+ * Diese Klasse bietet Hilfsfunktionen, um die aktuelle Zeit zu ermitteln.
+ * Weiters stellt sie fest, bei welchem Menüpunkt sich der Nutzer befindet.
  */
 public class Util {
 	
 	/**
-	 * Gets the current Date.
+	 * Diese Methode gibt das heutige Datum in Form eines Strings zurück.
 	 * 
-	 * @return Current Date as String
+	 * @return Heutiges Datum als String
 	 */
 	public String getDate(){
 		DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
@@ -24,9 +22,11 @@ public class Util {
 	}
 	
 	/**
-	 * Gets the current Date and the current Time.
+	 * Diese Methode gibt das heutige Datum, sowie die derzeitige Uhrzeit,
+	 * in Form eines Strings zurück.
 	 * 
-	 * @return Current Date + Time as String
+	 * @return Heutiges Datum, sowie Uhrzeit, als String
+	 * @see Util#getDate()
 	 */
 	public String getDateTime(){
 		DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
@@ -35,9 +35,11 @@ public class Util {
 	}
 	
 	/**
-	 * This method is used to give the menu point of the current page a special design/background.
+	 * Diese Methode dient zur Überprüfung, auf welchem Menüpunkt sich der
+	 * Nutzer derzeit befindet. Dieser wird farblich hervorgehoben
 	 * 
-	 * @return ID activeMenu if the menu point should get a background
+	 * @return activeMenu: Wird zurückgegeben, wenn der Menüpunkt, auf dem sich
+	 * der Nutzer befindet, derzeit aktiv ist.
 	 */
 	public String activeMenu(String menu, String current_menu){
 		if(menu.equals(current_menu)){

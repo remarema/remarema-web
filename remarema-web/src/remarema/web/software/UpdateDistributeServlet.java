@@ -17,9 +17,12 @@ import remarema.api.network.NetworkDetail;
 import remarema.api.software.CreateDeployment;
 import remarema.api.software.UpdateDeploy;
 import remarema.services.software.DeployServiceBean;
+import remarema.web.networks.NetworkEditServlet;
 
 /**
- * Servlet implementation class UpdateDistributeServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zum aktualisieren von Softwareverteilungen dar.
+ * 
+ * @see NetworkEditServlet
  */
 @WebServlet(name = "update_distribute", urlPatterns = { "/update_distribute" })
 public class UpdateDistributeServlet extends HttpServlet {
@@ -37,8 +40,8 @@ public class UpdateDistributeServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see NetworkEditServlet#doGet(HttpServletRequest, HttpServletResponse)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -46,8 +49,8 @@ public class UpdateDistributeServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see NetworkEditServlet#doPost(HttpServletRequest, HttpServletResponse)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 		Integer deployID = new Integer(request.getParameter("id"));

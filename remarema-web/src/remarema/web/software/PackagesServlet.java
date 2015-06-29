@@ -13,10 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import remarema.api.software.CreatePackage;
 import remarema.api.software.PackageDetail;
 import remarema.services.software.SoftwarepackageServiceBean;
+import remarema.web.networks.NetworkEditServlet;
+import remarema.web.networks.NetworksServlet;
 import remarema.web.util.CookieHelper;
 
 /**
- * Servlet implementation class AddSoftwareServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zur Anzeige aller Softwarepakete dar.
+ * 
+ * @see NetworksServlet
  */
 @WebServlet("/packages")
 public class PackagesServlet extends HttpServlet {
@@ -34,8 +38,8 @@ public class PackagesServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see NetworkEditServlet#doGet(HttpServletRequest, HttpServletResponse)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -57,8 +61,8 @@ public class PackagesServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see NetworkEditServlet#doPost(HttpServletRequest, HttpServletResponse)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

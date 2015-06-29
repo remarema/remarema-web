@@ -19,11 +19,15 @@ import remarema.services.network.NetworkServiceBean;
 import remarema.services.software.DeployServiceBean;
 import remarema.services.software.SoftwarepackageServiceBean;
 import remarema.services.software.SoftwareversionServiceBean;
+import remarema.web.networks.NetworkEditServlet;
+import remarema.web.networks.NetworksServlet;
 import remarema.web.util.CookieHelper;
 import remarema.web.util.Util;
 
 /**
- * Servlet implementation class DistributeServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zur Anzeige aller Softwareverteilungen dar.
+ * 
+ * @see NetworksServlet
  */
 @WebServlet("/distribute")
 public class DistributeServlet extends HttpServlet {
@@ -49,8 +53,8 @@ public class DistributeServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see NetworkEditServlet#doGet(HttpServletRequest, HttpServletResponse)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -102,8 +106,8 @@ public class DistributeServlet extends HttpServlet {
 	
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see NetworkEditServlet#doPost(HttpServletRequest, HttpServletResponse)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

@@ -15,6 +15,9 @@ import remarema.api.network.NodeDetail;
 import remarema.services.network.NetworkServiceBean;
 import remarema.web.util.CookieHelper;
 
+/**
+ * Diese Klasse stellt ein <code>Servlet</code> zur Anzeige aller Netzwerken dar.
+ */
 @WebServlet("/networks")
 public class NetworksServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -22,6 +25,17 @@ public class NetworksServlet extends HttpServlet {
 	@Inject
 	private NetworkServiceBean networkService;
 
+	/**
+	 * Diese Methode dient zur Anzeige aller Netzwerke. Mittels eines Datenbankzugriffes
+	 * über das <code>NetworkServiceBean</code> werden alle Netzwerke aus der
+	 * Datenbank ausgelesen. Sollten keine Netzwerke vorhanden sein, wird die Möglichkeit
+	 * zur Erstellung eines Root-Netzwerkes geboten. Damit weniger Daten an den User
+	 * übertragen werden müssen, werden die Netzwerke in mehreren Seiten dargestellt,
+	 * welche der Betrachter wechseln kann.
+	 * 
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		if (CookieHelper.checkCookie(request, 8)) {
@@ -99,6 +113,16 @@ public class NetworksServlet extends HttpServlet {
 		show(request, response);
 	}
 
+	/**
+	 * Diese Methode wird aufgerufen, wenn der User nach einem bestimmten
+	 * Netzwerk sucht. Der Suchparameter wird in ein <code>networkDetail</code>
+	 * Objekt gespeichert und mittels des <code>NetworkServiceBeans</code>
+	 * an die Datenbank übergeben. Diese schickt als Antwort eine Liste
+	 * an passenden Netzwerken zurück, welche dem User dargestellt werden.
+	 * 
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		if (CookieHelper.checkCookie(request, 8)) {

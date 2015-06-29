@@ -18,7 +18,9 @@ import remarema.services.network.NodeServiceBean;
 import remarema.web.util.CookieHelper;
 
 /**
- * Servlet implementation class NodesServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zur Anzeige aller Clients dar.
+ * 
+ * @see NetworksServlet
  */
 @WebServlet("/nodes")
 public class NodesServlet extends HttpServlet {
@@ -27,6 +29,10 @@ public class NodesServlet extends HttpServlet {
 	@Inject
 	private NodeServiceBean nodeService;
 
+	/**
+	 * @see NetworkEditServlet#doGet(HttpServletRequest, HttpServletResponse)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		if (CookieHelper.checkCookie(request, 9)) {
@@ -98,6 +104,10 @@ public class NodesServlet extends HttpServlet {
 		show(request, response);
 	}
 
+	/**
+	 * @see NetworkEditServlet#doPost(HttpServletRequest, HttpServletResponse)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		if (CookieHelper.checkCookie(request, 9)) {

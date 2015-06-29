@@ -8,10 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import remarema.web.networks.NetworksServlet;
 import remarema.web.util.CookieHelper;
 
 /**
- * Servlet implementation class AddSoftwareServlet
+ * Diese Klasse stellt ein <code>Servlet</code> zum Hinzufügen einer neuen Software dar.
+ * 
+ * @see NetworksServlet
  */
 @WebServlet("/addSoftware")
 public class AddSoftwareServlet extends HttpServlet {
@@ -26,6 +29,7 @@ public class AddSoftwareServlet extends HttpServlet {
 	}
 
 	/**
+	 * @see AddNetworkServlet#doGet(HttpServletRequest, HttpServletResponse)
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -40,6 +44,7 @@ public class AddSoftwareServlet extends HttpServlet {
 	}
 
 	/**
+	 * @see AddNetworkServlet#doPost(HttpServletRequest, HttpServletResponse)
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
